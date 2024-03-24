@@ -25,29 +25,16 @@ namespace Runtime.Managers
         #endregion
 
         #endregion
-        private void Awake()
-        {
-            //Debug.Log("Commands initialized");
-            Init();
-        }
-
+        private void Awake() => Init();
+        
         private void Init()
         {
             _levelLoader = new LevelLoaderCommand(this);
             _levelDestroyer = new LevelDestroyerCommand(this);
         }
 
-        private void OnEnable()
-        {
-            SubscribeEvents();
-            
-            //_currentLevel = GetLevelID()
-            _currentLevel = 0; // for debugging
-            
-            CoreGameSignals.Instance.onLevelInitialize?.Invoke(_currentLevel);
-
-        }
-
+        private void OnEnable() => SubscribeEvents();
+      
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onLevelInitialize += _levelLoader.Execute;
@@ -55,12 +42,13 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onGetLevelID += GetLevelID;
             CoreGameSignals.Instance.onNextLevel += OnNextLevel;
             CoreGameSignals.Instance.onRestartLevel += OnRestartLevel;
+            
+            //_currentLevel = GetLevelID()
+            _currentLevel = 0; // for debugging
+            CoreGameSignals.Instance.onLevelInitialize?.Invoke(_currentLevel);
         }
 
-        private void OnDisable()
-        {
-            UnsubscribeEvents();
-        }
+        private void OnDisable() => UnsubscribeEvents();
 
         private void UnsubscribeEvents()
         {

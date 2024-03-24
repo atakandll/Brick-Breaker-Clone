@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Levels
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Levels
   m_Data:
     m_SerializedData: []
   m_GUID: ac6c13d14c881da419189661de9e1dc1
   m_SerializeEntries:
-  - m_GUID: a229e9852168b2f448a6cf30deeafd9e
+  - m_GUID: e7b6fb6c242ec2c4eb45ddb716209b7c
     m_Address: Prefabs/LevelPrefabs/Level 0
     m_ReadOnly: 0
     m_SerializedLabels: []

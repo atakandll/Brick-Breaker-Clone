@@ -1,6 +1,6 @@
 ﻿namespace Runtime.Enums
 {
-    public enum IUPanelTypes
+    public enum UIPanelTypes
     {
         Start,
         Level,

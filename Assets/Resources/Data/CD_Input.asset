@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7727b8f779614d6286eee0a7827b1c3d, type: 3}
   m_Name: CD_Input
   m_EditorClassIdentifier: 
+  Data:
+    HorizontalInputSpeed: 2
+    HorizontalInputClampNegativeSides:
+      x: 3
+      y: 1
+    HorizontalInputClampStopValue: 2

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Scenes
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Scenes
   m_Data:
     m_SerializedData: []
   m_GUID: 66fdecad2c63dc444af2ae75caaf44d2

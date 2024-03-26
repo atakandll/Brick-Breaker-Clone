@@ -53,8 +53,11 @@ namespace Runtime.Controllers.UI
         private void OnClosePanel(int layerValue)
         {
             if (layers[layerValue].transform.childCount > 0)
+            {
                 for(int i = 0; i < layers[layerValue].transform.childCount; i++)
                     Object.Destroy(layers[layerValue].transform.GetChild(i).gameObject);
+            }
+                
             
         }
         [Button("CloseAllPanels")]
@@ -68,9 +71,6 @@ namespace Runtime.Controllers.UI
                 }
             }
         }
-        
-        
-        
     }
 }
 

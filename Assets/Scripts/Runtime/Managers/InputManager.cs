@@ -35,22 +35,20 @@ namespace Runtime.Managers
         private void Awake()
         {
             _data = GetInputData();
-            Logger.Instance.Log<InputManager>("Data Loaded", "green", _data.GetType());
+            Logger.Instance.Log<InputManager>("InputData Loaded", "green", _data.GetType());
            
         }
-
         private InputData GetInputData() => Resources.Load<CD_Input>("Data/CD_Input").Data;
 
         private void OnEnable() => SubscribeEvents();
 
         private void SubscribeEvents()
         {
-            Logger.Instance.Log<InputManager>("Events Subscribed", "red");
+            Logger.Instance.Log<InputManager>("InputEvents Subscribed", "red");
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onPlay += OnPlay;
             InputSignals.Instance.onChangeInputState += OnChangeInputState;
         }
-
         private void OnPlay() => _isAvaibleForTouch = true;
         private void OnChangeInputState(bool state) => _isAvaibleForTouch = state;
 
@@ -88,11 +86,8 @@ namespace Runtime.Managers
                     Logger.Instance.Log<InputManager>("First Time Touch", "red");
 
                 }
-
                 _mousePosition = Input.mousePosition;
-
             }
-
             if (Input.GetMouseButton(0) && !IsPointerOverUIElement())
             {
                 if (_isTouching)
@@ -120,10 +115,6 @@ namespace Runtime.Managers
 
                         });
                         Logger.Instance.Log<InputManager>("Input Dragged", "red");
-
-                        
-
-                        
                     }
                 }
             }
@@ -138,7 +129,6 @@ namespace Runtime.Managers
             EventSystem.current.RaycastAll(eventData, results);
             return results.Count > 0;
         }
-
         private void OnReset()
         {
             _isTouching = false;

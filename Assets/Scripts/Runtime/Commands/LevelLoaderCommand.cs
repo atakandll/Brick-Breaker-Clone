@@ -31,13 +31,13 @@ namespace Runtime.Commands
                     else
                     {
                         Logger.Instance.Log<LevelLoaderCommand>(
-                            "Level {parameter} loaded but the asset is not a valid GameObject." + "black" + parameter);
+                            "Level {parameter} loaded but the asset is not a valid GameObject","black");
                     }
                 }
                 else
                 {
                     
-                    Logger.Instance.Log<LevelLoaderCommand>($"Failed to load level {parameter}: {handle.OperationException.Message}");
+                    Logger.Instance.Log<LevelLoaderCommand>($"Failed to load level {parameter}","red");
                 }
             };
         }

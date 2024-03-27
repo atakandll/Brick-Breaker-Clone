@@ -55,9 +55,8 @@ namespace Runtime.Controllers.Paddle
             _inputValue = inputParams.HorizontalInputValue;
             _clampValues = inputParams.HorizontalInputClampSides;
         }
-        private void Update()
+        private void FixedUpdate()
         {
-            Logger.Instance.Log<PaddleMovementController>("PaddleMovementController Update", "red");
             if (_isReadyToPlay)
             {
                 if (_isReadyToMove)

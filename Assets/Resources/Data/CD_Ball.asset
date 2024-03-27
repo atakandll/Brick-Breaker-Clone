@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4caf62dfb240238ccb302849d45db3, type: 3}
-  m_Name: CD_Paddle
+  m_Script: {fileID: 11500000, guid: a2d88f5dbcbd4b788e076f72eb7109ba, type: 3}
+  m_Name: CD_Ball
   m_EditorClassIdentifier: 
   Data:
-    SideWaysSpeed: 11
+    Speed: 10
+    Acceleration: 2

@@ -21,7 +21,6 @@ namespace Runtime.Controllers.Ball
         private readonly string _paddle = "Paddle";
         private readonly string _brick = "Brick";
         private readonly string edge = "Edge";
-        private readonly string _deadZone = "DeadZone";
 
         #endregion
 
@@ -48,16 +47,6 @@ namespace Runtime.Controllers.Ball
             {
                 Logger.Instance.Log<BallPhysicController>("OnCollisionEdge", "green");
                 _ballManager.OnInteractionEdge(other.gameObject);
-                
-            }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag(_deadZone))
-            {
-                Logger.Instance.Log<BallPhysicController>("OnTriggerDeadZone", "green");
-                _ballManager.OnInteractionDeadZone(other.gameObject);
                 
             }
         }

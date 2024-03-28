@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 400880138140091178}
   - component: {fileID: 8931027600968769531}
   - component: {fileID: 6256961337613531148}
-  - component: {fileID: 2900805598893944922}
+  - component: {fileID: 4842911685653684122}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -211,7 +211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 53}
+  m_AnchoredPosition: {x: 0, y: 47}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &400880138140091178
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2900805598893944922
+--- !u!114 &4842911685653684122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

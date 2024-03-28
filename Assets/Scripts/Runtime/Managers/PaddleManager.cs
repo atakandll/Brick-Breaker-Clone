@@ -16,7 +16,6 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private PaddleMovementController movementController;
-        [SerializeField] private PaddlePhysicController physicController;
 
         #endregion
 

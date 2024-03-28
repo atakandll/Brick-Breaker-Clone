@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CD_Ball
   m_EditorClassIdentifier: 
   Data:
-    Speed: 10
+    Speed: 12
     Acceleration: 2

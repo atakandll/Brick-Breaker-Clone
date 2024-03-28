@@ -2,6 +2,7 @@
 using Runtime.Controllers.Ball;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
+using Runtime.Enums;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,7 +16,6 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private BallMovementController movementController;
-        [SerializeField] private BallPhysicController physicController;
 
         #endregion
 
@@ -41,28 +41,32 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelSuccessful += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed += () => BallSignals.Instance.onPlayConditionChanged(false);
             CoreGameSignals.Instance.onReset += OnReset;
-            
+
+            BallSignals.Instance.onInteractionDeadZone += OnInteractionDeadZone; 
             BallSignals.Instance.onInteractionPaddle += OnInteractionPaddle;
             BallSignals.Instance.onInteractionBrick += OnInteractionBrick;
             BallSignals.Instance.onInteractionEdge += OnInteractionEdge;
         }
 
-        private void OnInteractionPaddle(GameObject paddleGameObject)
+        internal void OnInteractionDeadZone(GameObject deadZone)
+        {
+            CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Fail, 2);
+        }
+        internal void OnInteractionPaddle(GameObject paddleGameObject)
         {
             _data.Speed -= 5;
         }
-        private void OnInteractionBrick(GameObject brickGameObject)
+        internal void OnInteractionBrick(GameObject brickGameObject)
         {
             //TODO: Add Feel
             _data.Speed += 7;
 
         }
-        private void OnInteractionEdge(GameObject edgeGameObject)
+        internal void OnInteractionEdge(GameObject edgeGameObject)
         {
             _data.Speed += 5;
         }
-
-
+        
         private void OnReset() => movementController.OnReset();
         private void OnDisable() => UnsubscribeEvents();
 

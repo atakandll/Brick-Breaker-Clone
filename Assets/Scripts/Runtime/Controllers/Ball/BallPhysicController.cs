@@ -21,27 +21,43 @@ namespace Runtime.Controllers.Ball
         private readonly string _paddle = "Paddle";
         private readonly string _brick = "Brick";
         private readonly string edge = "Edge";
+        private readonly string _deadZone = "DeadZone";
 
         #endregion
 
         #endregion
+
+        private void Awake()
+        {
+            Logger.Instance.Log<BallPhysicController>("BallPhysicControllerActivated", "green");
+        }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.gameObject.CompareTag(_paddle))
             {
-                BallSignals.Instance.onInteractionPaddle?.Invoke(other.gameObject);
                 Logger.Instance.Log<BallPhysicController>("OnCollisionPaddle", "green");
+               _ballManager.OnInteractionPaddle(other.gameObject);
             }
-            else if (other.gameObject.CompareTag(_brick))
+            if (other.gameObject.CompareTag(_brick))
             {
-                BallSignals.Instance.onInteractionBrick?.Invoke(other.gameObject);
                 Logger.Instance.Log<BallPhysicController>("OnCollisionBrick", "green");
+                _ballManager.OnInteractionBrick(other.gameObject);
             }
-            else if (other.gameObject.CompareTag(edge))
+            if (other.gameObject.CompareTag(edge))
             {
-                BallSignals.Instance.onInteractionEdge?.Invoke(other.gameObject);
                 Logger.Instance.Log<BallPhysicController>("OnCollisionEdge", "green");
+                _ballManager.OnInteractionEdge(other.gameObject);
+                
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag(_deadZone))
+            {
+                Logger.Instance.Log<BallPhysicController>("OnTriggerDeadZone", "green");
+                _ballManager.OnInteractionDeadZone(other.gameObject);
                 
             }
         }

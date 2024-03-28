@@ -10,5 +10,6 @@ namespace Runtime.Signals
         public UnityAction<GameObject> onInteractionPaddle = delegate { };
         public UnityAction<GameObject> onInteractionBrick = delegate { };
         public UnityAction<GameObject> onInteractionEdge = delegate { };
+        public UnityAction<GameObject> onInteractionDeadZone = delegate { };
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Runtime.Controllers.Paddle;
-using Runtime.Extensions.ObjectPooling;
 using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;

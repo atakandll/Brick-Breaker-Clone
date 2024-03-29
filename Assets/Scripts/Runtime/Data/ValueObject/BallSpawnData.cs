@@ -7,6 +7,7 @@ namespace Runtime.Data.ValueObject
     public struct BallSpawnData
     {
         public int SpawnLimit;
+        public int SpawnRange;
         public GameObject BallSpawnZone;
     }
 }

@@ -7,7 +7,6 @@ namespace Runtime.Signals
 {
     public class CoreGameSignals : MonoSingleton<CoreGameSignals>
     {
-        public UnityAction<GameStates> onChangeGameStates = delegate { };
         public UnityAction<int> onLevelInitialize = delegate { };
         public UnityAction onClearActiveLevel = delegate { };
         public UnityAction onLevelSuccessful = delegate { };

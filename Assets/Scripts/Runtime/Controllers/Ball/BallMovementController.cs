@@ -56,18 +56,9 @@ namespace Runtime.Controllers.Ball
             Vector2 force = new Vector2(Random.Range(-2f, 2f), 1);
 
             rigidbody.AddForce(force.normalized * _data.Speed, ForceMode2D.Impulse);
-            StartCoroutine(CheckAndLimitSpeed());
+            rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, _data.MaxSpeed);
         }
-
-        private IEnumerator CheckAndLimitSpeed()
-        {
-            yield return new WaitForSeconds(0.1f); // Wait a little for the speed to stabilize
-            while (_isReadyToPlay)
-            {
-                rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, _data.MaxSpeed);
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
+        
         private void Stop()
         {
             rigidbody.velocity = Vector3.zero;

@@ -6,6 +6,6 @@ namespace Runtime.Data.ValueObject
     public struct BallData
     {
         public float Speed;
-        public int Acceleration;
+        public int MaxSpeed;
     }
 }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Security.Cryptography;
+﻿using System.Collections;
 using Runtime.Data.ValueObject;
-using Runtime.Managers;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -58,6 +56,17 @@ namespace Runtime.Controllers.Ball
             Vector2 force = new Vector2(Random.Range(-2f, 2f), 1);
 
             rigidbody.AddForce(force.normalized * _data.Speed, ForceMode2D.Impulse);
+            StartCoroutine(CheckAndLimitSpeed());
+        }
+
+        private IEnumerator CheckAndLimitSpeed()
+        {
+            yield return new WaitForSeconds(0.1f); // Wait a little for the speed to stabilize
+            while (_isReadyToPlay)
+            {
+                rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, _data.MaxSpeed);
+                yield return new WaitForSeconds(0.1f);
+            }
         }
         private void Stop()
         {

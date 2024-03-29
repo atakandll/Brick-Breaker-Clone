@@ -3,9 +3,11 @@ using Runtime.Controllers.Ball;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
 using Runtime.Enums;
+using Runtime.Extensions.ObjectPooling;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Managers
 {
@@ -16,6 +18,8 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private BallMovementController movementController;
+        [SerializeField] private PrefabPoolUsage prefabPoolUsage;
+
 
         #endregion
 
@@ -41,30 +45,17 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelSuccessful += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed += () => BallSignals.Instance.onPlayConditionChanged(false);
             CoreGameSignals.Instance.onReset += OnReset;
-
-            BallSignals.Instance.onInteractionDeadZone += OnInteractionDeadZone; 
-            BallSignals.Instance.onInteractionPaddle += OnInteractionPaddle;
-            BallSignals.Instance.onInteractionBrick += OnInteractionBrick;
-            BallSignals.Instance.onInteractionEdge += OnInteractionEdge;
+            
         }
-
-        internal void OnInteractionDeadZone(GameObject deadZone)
+        internal void OnInteractionPaddle()
         {
-            CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Fail, 2);
-        }
-        internal void OnInteractionPaddle(GameObject paddleGameObject)
-        {
-            _data.Speed -= 5;
-        }
-        internal void OnInteractionBrick(GameObject brickGameObject)
-        {
-            //TODO: Add Feel
-            _data.Speed += 7;
+            Debug.Log("OnCollisionPaddle");
 
         }
-        internal void OnInteractionEdge(GameObject edgeGameObject)
+      
+        internal void OnInteractionEdge()
         {
-            _data.Speed += 5;
+            Debug.Log("OnCollisionEdge");
         }
         
         private void OnReset() => movementController.OnReset();
@@ -76,6 +67,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelSuccessful -= () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed -= () => BallSignals.Instance.onPlayConditionChanged(false);
             CoreGameSignals.Instance.onReset -= OnReset;
+            
         }
     }
 }

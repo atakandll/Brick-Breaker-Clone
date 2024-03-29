@@ -135,7 +135,6 @@ namespace Runtime.Extensions.ObjectPooling
         // Override this method to do something after release an object.
         protected virtual void OnRelease(GameObject prefabModel)
         {
-           
             // TODO: Clean references or reset variables are very common cases.
         }
     }

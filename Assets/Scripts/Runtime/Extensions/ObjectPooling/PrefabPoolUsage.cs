@@ -62,7 +62,7 @@ namespace Runtime.Extensions.ObjectPooling
         }
         
         [Button]
-        public void ReleaseRandomChild(GameObject objToRelease)
+        public void ReleaseChild(GameObject objToRelease)
         {
             if (objToRelease != null)
             {

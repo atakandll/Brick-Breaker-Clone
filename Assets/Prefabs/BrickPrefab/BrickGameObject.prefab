@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5555232743974749223}
   - component: {fileID: 549819355894812228}
   - component: {fileID: 1003781362742658237}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BrickGameObject
-  m_TagString: Untagged
+  m_TagString: Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

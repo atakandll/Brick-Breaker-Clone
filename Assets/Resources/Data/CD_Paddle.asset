@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CD_Paddle
   m_EditorClassIdentifier: 
   Data:
-    SideWaysSpeed: 11
+    SideWaysSpeed: 20

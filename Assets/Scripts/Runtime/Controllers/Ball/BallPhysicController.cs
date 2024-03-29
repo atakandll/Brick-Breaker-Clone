@@ -1,7 +1,9 @@
 ﻿using System;
+using Runtime.Extensions.ObjectPooling;
 using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Ball
@@ -12,41 +14,25 @@ namespace Runtime.Controllers.Ball
 
         #region Serialized Variables
 
-        [SerializeField] private BallManager _ballManager;
-
-        #endregion
-
-        #region Private Variables
-
-        private readonly string _paddle = "Paddle";
-        private readonly string _brick = "Brick";
-        private readonly string edge = "Edge";
+        [SerializeField] private BallManager ballManager;
 
         #endregion
 
         #endregion
 
-        private void Awake()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Logger.Instance.Log<BallPhysicController>("BallPhysicControllerActivated", "green");
-        }
+            if (other.gameObject.CompareTag("Paddle"))
+            {
+               ballManager.OnInteractionPaddle();
+            }
+            if (other.gameObject.CompareTag("Brick"))
+            {
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.CompareTag(_paddle))
-            {
-                Logger.Instance.Log<BallPhysicController>("OnCollisionPaddle", "green");
-               _ballManager.OnInteractionPaddle(other.gameObject);
             }
-            if (other.gameObject.CompareTag(_brick))
+            if (other.gameObject.CompareTag("Edge"))
             {
-                Logger.Instance.Log<BallPhysicController>("OnCollisionBrick", "green");
-                _ballManager.OnInteractionBrick(other.gameObject);
-            }
-            if (other.gameObject.CompareTag(edge))
-            {
-                Logger.Instance.Log<BallPhysicController>("OnCollisionEdge", "green");
-                _ballManager.OnInteractionEdge(other.gameObject);
+                ballManager.OnInteractionEdge();
                 
             }
         }

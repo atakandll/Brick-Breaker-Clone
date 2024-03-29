@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Controllers.Paddle;
 using Runtime.Extensions.ObjectPooling;
 using Runtime.Managers;
 using Runtime.Signals;
@@ -22,7 +23,7 @@ namespace Runtime.Controllers.Ball
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Paddle"))
+            if (other.TryGetComponent(out PaddlePhysicController paddlePhysicController))
             {
                ballManager.OnInteractionPaddle();
             }

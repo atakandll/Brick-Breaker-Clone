@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Controllers.Ball;
 using Runtime.Interfaces;
 using UnityEngine;
 using Logger = Runtime.Extensions.Logger;
@@ -11,7 +12,7 @@ namespace Runtime.Controllers.Paddle
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Ball"))
+            if (other.TryGetComponent(out BallPhysicController ballPhysicController))
             {
                 Debug.Log("Ontriggerball");
                

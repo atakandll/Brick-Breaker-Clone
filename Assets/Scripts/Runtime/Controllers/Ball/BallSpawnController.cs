@@ -46,12 +46,20 @@ namespace Runtime.Controllers.Ball
                 
             }
         }
-
         public void Spawn()
         {
             GameObject ball = PullFromPool(PoolObjectType.Ball);
             _spawnedObjects.Add(ball);
             ball.transform.position = SelfExtensions.GetRandomPosition(_data.BallSpawnZone);
+            
+            BallMovementController ballMovement = ball.GetComponent<BallMovementController>();
+            if(ballMovement != null)
+            {
+                ballMovement._isReadyToPlay = true;
+                ballMovement.LaunchBall();
+            }
+        
+            ball.SetActive(true);
             
         }
 

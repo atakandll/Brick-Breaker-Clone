@@ -60,7 +60,6 @@ namespace Runtime.Managers
         public void OnRestartLevel()
         {
             CoreGameSignals.Instance.onRestartLevel?.Invoke();
-            CoreGameSignals.Instance.onReset?.Invoke();
         }
 
         private void OnLevelFailed()

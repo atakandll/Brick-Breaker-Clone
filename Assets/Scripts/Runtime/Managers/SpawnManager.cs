@@ -55,6 +55,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
         }
+        
         private void OnDisable()
         {
             UnsubscribeEvents();
@@ -66,11 +67,14 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onReset -= OnReset;
+            
         }
         private void OnPlay()
         {
             Debug.Log("SpawnManager OnPlay Çalıştı");
             TriggerController();
+            ActivatorController();
+
             
         }
         private void OnLevelInitialize(int levelID)
@@ -78,7 +82,6 @@ namespace Runtime.Managers
             Debug.Log("SpawnManager OnLevelInitialize");
             ActivatorController();
         }
-
         private void ActivatorController()
         {
             _bricksSpawnController.IsActivating = true;

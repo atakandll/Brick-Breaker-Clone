@@ -33,9 +33,7 @@ namespace Runtime.Controllers.Bricks
         }
         public void TriggerAction()
         {
-           
             if (!IsActivating) return;
-            
             Spawn();
                 
             Debug.Log("BricksSpawnController TriggerAction Çalıştı");

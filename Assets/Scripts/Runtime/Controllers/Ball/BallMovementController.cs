@@ -21,7 +21,7 @@ namespace Runtime.Controllers.Ball
         #region Private Variables
 
         [Header("Data")] [ShowInInspector] private BallData _data;
-        [ShowInInspector] private bool _isReadyToPlay;
+        [ShowInInspector] public bool _isReadyToPlay { get; set; }
         [ShowInInspector] private bool isLaunched = false;
 
         #endregion
@@ -43,6 +43,7 @@ namespace Runtime.Controllers.Ball
                     LaunchBall();
                     isLaunched = true;
                 }
+                rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, _data.MaxSpeed);
             }
             else
             {
@@ -54,9 +55,7 @@ namespace Runtime.Controllers.Ball
         public void LaunchBall()
         {
             Vector2 force = new Vector2(Random.Range(-2f, 2f), 1);
-
             rigidbody.AddForce(force.normalized * _data.Speed, ForceMode2D.Impulse);
-            rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, _data.MaxSpeed);
         }
         
         private void Stop()

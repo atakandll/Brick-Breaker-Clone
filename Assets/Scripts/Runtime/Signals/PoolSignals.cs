@@ -10,5 +10,5 @@ namespace Runtime.Signals
     {
         public Func<PoolObjectType,GameObject> onGetPoolObject = delegate { return null; };
         public UnityAction<PoolObjectType,GameObject> onReleasePoolObject = delegate { };
-    }
+    } 
 }

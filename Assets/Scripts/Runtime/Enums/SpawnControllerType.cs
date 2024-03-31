@@ -2,6 +2,7 @@
 {
     public enum SpawnControllerType
     {
-        
+        BrickSpawnController,
+        BallSpawnController,
     }
 }

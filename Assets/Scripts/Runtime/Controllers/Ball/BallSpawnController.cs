@@ -37,8 +37,7 @@ namespace Runtime.Controllers.Ball
 
         public async void SpawnDelay()
         {
-            int milliSecondsValue = 5000;
-            int milliSeconds = _spawnManager.Data.BallSpawnData.SpawnRange * milliSecondsValue;
+            int milliSeconds = _spawnManager.Data.BallSpawnData.SpawnRange * 1000;
             for (int i = 0; i < _data.SpawnLimit; i++)
             {
                 if(!IsActivating) break;
@@ -47,6 +46,7 @@ namespace Runtime.Controllers.Ball
                 
             }
         }
+
         public void Spawn()
         {
             GameObject ball = PullFromPool(PoolObjectType.Ball);

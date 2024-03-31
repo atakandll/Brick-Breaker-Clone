@@ -1,13 +1,9 @@
-﻿using System;
-using Runtime.Controllers.Ball;
+﻿using Runtime.Controllers.Ball;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
-using Runtime.Enums;
-using Runtime.Extensions.ObjectPooling;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Managers
 {
@@ -18,9 +14,7 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private BallMovementController movementController;
-        [SerializeField] private PrefabPoolUsage prefabPoolUsage;
-
-
+        
         #endregion
 
         #region Private Variables

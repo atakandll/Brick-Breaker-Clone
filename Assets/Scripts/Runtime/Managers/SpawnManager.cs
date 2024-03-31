@@ -1,11 +1,8 @@
-﻿using System;
-using Runtime.Controllers.Ball;
+﻿using Runtime.Controllers.Ball;
 using Runtime.Controllers.Bricks;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
 using Runtime.Signals;
-using Sirenix.OdinInspector.Editor.GettingStarted;
-using Sirenix.OdinValidator.Editor;
 using UnityEngine;
 
 namespace Runtime.Managers
@@ -16,7 +13,7 @@ namespace Runtime.Managers
 
         #region Public Variables
 
-        public SpawnData Data;
+        public SpawnData Data { get; set; }
 
         #endregion
 
@@ -24,6 +21,8 @@ namespace Runtime.Managers
 
         private BricksSpawnController _bricksSpawnController;
         private BallSpawnController _ballSpawnController;
+        private BallMovementController _ballMovementController;
+
 
         #endregion
 
@@ -31,41 +30,79 @@ namespace Runtime.Managers
 
         private void Awake()
         {
-            GetReferences();
             Data = GetData();
+            GetReferences();
         }
         private void GetReferences()
         {
             _bricksSpawnController = new BricksSpawnController(this);
             _ballSpawnController = new BallSpawnController(this);
+            Debug.Log("SpawnManager GetReferences");
+            
         }
-        private SpawnData GetData() => Resources.Load<CD_SpawnData>("Data/CD_Spawn").Data;
+        private SpawnData GetData() => Resources.Load<CD_SpawnData>("Data/CD_SpawnData").Data;
 
-        private void OnEnable() => SubscribeEvents();
+        private void OnEnable()
+        {
+            SubscribeEvents();
+            ActivatorController();
+            Debug.Log("SpawnManager OnEnable");
+        }
 
         private void SubscribeEvents()
         {
-            CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onLevelInitialize += OnLevelInitialize;
+            CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onReset += OnReset;
         }
-
-        private void OnPlay()
+        private void OnDisable()
         {
-            _bricksSpawnController.TriggerAction();
-            _ballSpawnController.TriggerAction();
+            UnsubscribeEvents();
+            DeactiveController();
         }
 
-        private void OnLevelInitialize(int a)
+        private void UnsubscribeEvents()
+        {
+            CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
+            CoreGameSignals.Instance.onPlay -= OnPlay;
+            CoreGameSignals.Instance.onReset -= OnReset;
+        }
+        private void OnPlay()
+        {
+            Debug.Log("SpawnManager OnPlay Çalıştı");
+            TriggerController();
+            
+        }
+        private void OnLevelInitialize(int levelID)
+        {
+            Debug.Log("SpawnManager OnLevelInitialize");
+            ActivatorController();
+        }
+
+        private void ActivatorController()
         {
             _bricksSpawnController.IsActivating = true;
             _ballSpawnController.IsActivating = true;
         }
+        private void TriggerController()
+        {
+            Debug.Log("SpawnManager TriggerController");
+            _bricksSpawnController.TriggerAction();
+            _ballSpawnController.TriggerAction();
+        }
 
-        private void OnReset()
+        private void DeactiveController()
         {
             _bricksSpawnController.IsActivating = false;
             _ballSpawnController.IsActivating = false;
+        }
+        
+        private void OnReset()
+        {
+            _ballSpawnController.Reset();
+            _bricksSpawnController.Reset();
+            DeactiveController();
+           
         }
     }
 }

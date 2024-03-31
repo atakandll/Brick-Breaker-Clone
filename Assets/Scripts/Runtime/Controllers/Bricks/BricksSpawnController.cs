@@ -15,9 +15,9 @@ namespace Runtime.Controllers.Bricks
 
         #region Private Variables
 
-        private List<GameObject> _spawnedObjects = new List<GameObject>();
-        private SpawnManager _spawnManager;
-        private BricksSpawnData _data;
+        private readonly List<GameObject> _spawnedObjects = new List<GameObject>();
+        private readonly SpawnManager _spawnManager;
+        private readonly BricksSpawnData _data;
 
         #endregion
 
@@ -28,27 +28,37 @@ namespace Runtime.Controllers.Bricks
         {
             _spawnManager = spawnManager;
             _data = _spawnManager.Data.BricksSpawnData;
+            Debug.Log("BricksSpawnController Çalıştı");
             
         }
         public void TriggerAction()
         {
+           
             if (!IsActivating) return;
             
-            for (int i = 0; i < _data.SpawnLimit; i++)
-            {
-                if (!IsActivating) break;
-                Spawn();
-            }
+            Spawn();
+                
+            Debug.Log("BricksSpawnController TriggerAction Çalıştı");
+            
         }
         public void Spawn()
         {
-            GameObject bricks = PullFromPool(PoolObjectType.Bricks);
-            _spawnedObjects.Add(bricks);
-            bricks.transform.position = SelfExtensions.GetRandomPosition(_data.BrickSpawnZone);
+            Debug.Log("Spanw method çalıştı");
+            int totalBricksPerRow = _data.BricksPerRow;
+            for (int i = 0; i < _data.SpawnLimit; i++)
+            {
+                GameObject brick = PullFromPool(PoolObjectType.Bricks);
+                int row = i / totalBricksPerRow;
+                int column = i % totalBricksPerRow;
+                Vector3 spawnPosition = SelfExtensions.GetPositionInGrid(row, column, _data.BrickSize, _data.Spacing, _data.OriginPosition);
+                brick.transform.position = spawnPosition;
+                brick.SetActive(true);
+                _spawnedObjects.Add(brick);
+            }
         }
         public GameObject PullFromPool(PoolObjectType poolObjectType)
         {
-           return PoolSignals.Instance.onGetPoolObject?.Invoke(poolObjectType);
+           return PoolSignals.Instance.onGetPoolObject(poolObjectType);
         }
         public void Reset()
         {

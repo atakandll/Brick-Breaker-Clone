@@ -51,7 +51,7 @@ namespace Runtime.Controllers.Ball
                 isLaunched = false;
             }
         }
-        private void LaunchBall()
+        public void LaunchBall()
         {
             Vector2 force = new Vector2(Random.Range(-2f, 2f), 1);
 

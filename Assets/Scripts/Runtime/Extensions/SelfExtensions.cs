@@ -19,5 +19,14 @@ namespace Runtime.Extensions
             );
             return randomPosition;
         }
+        public static Vector3 GetPositionInGrid(int row, int column, Vector2 gridSize, Vector2 spacing, Vector3 origin)
+        {
+            float xPosition = origin.x + (column * (gridSize.x + spacing.x));
+            float yPosition = origin.y - (row * (gridSize.y + spacing.y));
+            return new Vector3(xPosition, yPosition, 0);
+        }
+
+
+        
     }
 }

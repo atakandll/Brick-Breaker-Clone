@@ -1,5 +1,7 @@
 ﻿using System;
 using Runtime.Controllers.Paddle;
+using Runtime.Enums;
+using Runtime.Interfaces;
 using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
@@ -8,7 +10,7 @@ using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Ball
 {
-    public class BallPhysicController : MonoBehaviour
+    public class BallPhysicController : MonoBehaviour, IPushObject
     {
         #region Self Variables
 
@@ -28,6 +30,8 @@ namespace Runtime.Controllers.Ball
             }
             if (other.gameObject.CompareTag("Brick"))
             {
+                PushToPool(PoolObjectType.Bricks, other.gameObject);
+                
 
             }
             if (other.gameObject.CompareTag("Edge"))
@@ -35,6 +39,11 @@ namespace Runtime.Controllers.Ball
                 ballManager.OnInteractionEdge();
                 
             }
+        }
+        public void PushToPool(PoolObjectType poolObjectType, GameObject obj)
+        {
+            PoolSignals.Instance.onReleasePoolObject(poolObjectType, obj);
+            Debug.Log("Brickler poola geri döndü");
         }
     }
 }

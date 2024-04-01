@@ -2,6 +2,7 @@
 using Runtime.Controllers.Bricks;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
+using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
 
@@ -73,7 +74,6 @@ namespace Runtime.Managers
          {
              Debug.Log("SpawnManager OnPlay Çalıştı");
              TriggerController();
-             ActivatorController();
              
          }
          private void OnLevelInitialize(int levelID)
@@ -92,6 +92,13 @@ namespace Runtime.Managers
              _bricksSpawnController.TriggerAction();
              _ballSpawnController.TriggerAction();
          }
+         private void OnReset()
+         {
+             DeactiveController();
+             _ballSpawnController.Reset();
+             _bricksSpawnController.Reset();
+             
+         }
  
          private void DeactiveController()
          {
@@ -99,10 +106,5 @@ namespace Runtime.Managers
              _ballSpawnController.IsActivating = false;
          }
          
-         private void OnReset()
-         {
-             _ballSpawnController.Reset();
-             _bricksSpawnController.Reset();
-             DeactiveController();
-         }
+        
      }

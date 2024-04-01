@@ -7,6 +7,7 @@ namespace Runtime.Managers
 {
     public class UIManager : MonoBehaviour
     {
+        
         private void OnEnable()
         {
             SubscribeEvents();
@@ -60,6 +61,7 @@ namespace Runtime.Managers
         public void OnRestartLevel()
         {
             CoreGameSignals.Instance.onRestartLevel?.Invoke();
+            
         }
 
         private void OnLevelFailed()

@@ -45,12 +45,12 @@ namespace Runtime.Controllers.Bricks
             int totalBricksPerRow = _data.BricksPerRow;
             for (int i = 0; i < _data.SpawnLimit; i++)
             {
+                if (!IsActivating) break;
                 GameObject brick = PullFromPool(PoolObjectType.Bricks);
                 int row = i / totalBricksPerRow;
                 int column = i % totalBricksPerRow;
                 Vector3 spawnPosition = SelfExtensions.GetPositionInGrid(row, column, _data.BrickSize, _data.Spacing, _data.OriginPosition);
                 brick.transform.position = spawnPosition;
-                brick.SetActive(true);
                 _spawnedObjects.Add(brick);
             }
         }

@@ -57,9 +57,9 @@ namespace Runtime.Controllers.Ball
             {
                 ballMovement._isReadyToPlay = true;
                 ballMovement.LaunchBall();
+                
             }
         
-            ball.SetActive(true);
             
         }
 

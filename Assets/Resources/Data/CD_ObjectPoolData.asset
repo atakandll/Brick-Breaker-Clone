@@ -16,7 +16,7 @@ MonoBehaviour:
   - PoolObjectType: 0
     PoolType: 0
     PoolObject: {fileID: 3329566019729582634, guid: 2ad339f79305f5549b03628653e4089d, type: 3}
-    PoolSize: 100
+    PoolSize: 50
   - PoolObjectType: 1
     PoolType: 0
     PoolObject: {fileID: 7084105906177246612, guid: f79e74149f767b5438fc120af6ac73ce, type: 3}

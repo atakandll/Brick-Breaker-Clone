@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     BricksSpawnData:
-      SpawnLimit: 50
+      BrickSize: {x: 1, y: 0.5}
+      BricksPerRow: 7
+      Spacing: {x: 3.5, y: 2}
+      OriginPosition: {x: -11, y: 20, z: 0}
+      SpawnLimit: 49
       BrickSpawnZone: {fileID: 1887200101496106930, guid: e7b6fb6c242ec2c4eb45ddb716209b7c, type: 3}
     BallSpawnData:
       SpawnLimit: 10
-      SpawnRange: 3
+      SpawnRange: 4
       BallSpawnZone: {fileID: 1887200101496106930, guid: e7b6fb6c242ec2c4eb45ddb716209b7c, type: 3}

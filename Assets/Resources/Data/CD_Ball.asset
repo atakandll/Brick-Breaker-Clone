@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CD_Ball
   m_EditorClassIdentifier: 
   Data:
-    Speed: 20
-    MaxSpeed: 30
+    Speed: 25
+    MaxSpeed: 35

@@ -31,8 +31,8 @@ namespace Runtime.Controllers.Ball
             if (other.gameObject.CompareTag("Brick"))
             {
                 PushToPool(PoolObjectType.Bricks, other.gameObject);
+                ballManager.OnInteractionWithBricks();
                 
-
             }
             if (other.gameObject.CompareTag("Edge"))
             {

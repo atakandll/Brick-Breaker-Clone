@@ -14,7 +14,7 @@ namespace Runtime.Controllers.Paddle
         {
             if (other.TryGetComponent(out BallPhysicController ballPhysicController))
             {
-                Debug.Log("Ontriggerball");
+                
                
             }
         }

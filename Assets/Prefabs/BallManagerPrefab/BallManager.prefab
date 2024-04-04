@@ -68,6 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5848644529376493166}
+  - component: {fileID: 8946219880318437404}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -91,6 +92,20 @@ Transform:
   m_Father: {fileID: 6986878599451792620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8946219880318437404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847284614918352515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f1a1d4ff524b5ba37ce8360d051102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confetti: {fileID: 0}
+  renderer: {fileID: 5500827828746421828}
 --- !u!1 &4495701303207141162
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +311,7 @@ GameObject:
   - component: {fileID: 5400119365592613666}
   - component: {fileID: 138128491793712124}
   - component: {fileID: 4639550030672804718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BallManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +355,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &138128491793712124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 4639550030672804718}
+  spriteController: {fileID: 8946219880318437404}
 --- !u!114 &4639550030672804718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +394,7 @@ GameObject:
   - component: {fileID: 5796309767834272485}
   - component: {fileID: 5556691596598502998}
   - component: {fileID: 6795242436789831680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Physics
   m_TagString: Ball
   m_Icon: {fileID: 0}

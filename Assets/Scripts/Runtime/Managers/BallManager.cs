@@ -14,6 +14,7 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private BallMovementController movementController;
+        [SerializeField] private BallSpriteController spriteController;
         
         #endregion
 
@@ -31,7 +32,12 @@ namespace Runtime.Managers
             SendBallDataToControllers();
         }
         private BallData GetData() => Resources.Load<CD_Ball>("Data/CD_Ball").Data;
-        private void SendBallDataToControllers() => movementController.SetMovementData(_data);
+        private void SendBallDataToControllers()
+        {
+            movementController.SetMovementData(_data);
+            spriteController.SetData(_data);
+        }
+
         private void OnEnable() => SubscribeEvents();
         private void SubscribeEvents()
         {
@@ -41,15 +47,26 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onReset += OnReset;
             
         }
+
+        internal void OnInteractionWithBricks()
+        {
+            spriteController.ChangeColorTemporarily();
+            spriteController.ScaleUpBall();
+            spriteController.ShakeScreen();
+            spriteController.TriggerFlashEffect();
+        }
         internal void OnInteractionPaddle()
         {
-            Debug.Log("OnCollisionPaddle");
-
+            spriteController.ChangeColorTemporarily();
+            spriteController.ScaleUpBall();
+            spriteController.ShakeScreen();
         }
       
         internal void OnInteractionEdge()
         {
-            Debug.Log("OnCollisionEdge");
+            spriteController.ChangeColorTemporarily();
+            spriteController.ScaleUpBall();
+            spriteController.ShakeScreen();
         }
         
         private void OnReset() => movementController.OnReset();

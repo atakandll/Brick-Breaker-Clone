@@ -13,6 +13,7 @@ namespace Runtime.Controllers.Ball
 
         [SerializeField] private ParticleSystem confetti;
         [SerializeField] private new SpriteRenderer renderer;
+       
         
         #endregion
 
@@ -40,6 +41,7 @@ namespace Runtime.Controllers.Ball
         {
             transform.DOScale(_data.ScaleUpSize, _data.ScaleUpDuration).SetEase(Ease.Flash)
                 .OnComplete(() => transform.DOScale(_originalScale, _data.ScaleDownDuration));
+            PlayDotweenAnimation();
             
         }
 
@@ -47,15 +49,25 @@ namespace Runtime.Controllers.Ball
         {
             renderer.DOColor(Color.white, _data.ColorChangeDuration).SetEase(Ease.Flash)
                 .OnComplete(() => renderer.DOColor(_originalColor, _data.ColorChangeDuration));
+            PlayDotweenAnimation();
         }
         internal void ShakeScreen()
         {
-            Camera.main.transform.DOShakePosition(0.4f, 1f, 20, 90, false, true);
+            var originalPosition = Camera.main.transform.position;
+
+            Camera.main.transform.DOShakePosition(0.4f, 1f, 20, 90, false, true)
+                .OnComplete(() => 
+                {
+                    PlayDotweenAnimation();
+                    Camera.main.transform.position = originalPosition;
+                });
         }
         internal void TriggerFlashEffect()
         {
-            // FlashEffectController sınıfına referansınız burada varsayılmıştır.
             FindObjectOfType<FlashEffectController>().Flash();
+        }
+        internal void PlayDotweenAnimation()
+        {
         }
         
 

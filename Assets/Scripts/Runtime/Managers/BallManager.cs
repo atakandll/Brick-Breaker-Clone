@@ -45,11 +45,14 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelSuccessful += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed += () => BallSignals.Instance.onPlayConditionChanged(false);
             CoreGameSignals.Instance.onReset += OnReset;
-            
+
+
         }
+        
 
         internal void OnInteractionWithBricks()
         {
+            BallSignals.Instance.onInteractionEveryObject?.Invoke();
             spriteController.ChangeColorTemporarily();
             spriteController.ScaleUpBall();
             spriteController.ShakeScreen();
@@ -57,6 +60,7 @@ namespace Runtime.Managers
         }
         internal void OnInteractionPaddle()
         {
+            BallSignals.Instance.onInteractionEveryObject?.Invoke();
             spriteController.ChangeColorTemporarily();
             spriteController.ScaleUpBall();
             spriteController.ShakeScreen();
@@ -64,6 +68,7 @@ namespace Runtime.Managers
       
         internal void OnInteractionEdge()
         {
+            BallSignals.Instance.onInteractionEveryObject?.Invoke();
             spriteController.ChangeColorTemporarily();
             spriteController.ScaleUpBall();
             spriteController.ShakeScreen();

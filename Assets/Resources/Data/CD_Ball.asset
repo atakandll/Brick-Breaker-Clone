@@ -15,3 +15,8 @@ MonoBehaviour:
   Data:
     Speed: 25
     MaxSpeed: 35
+    ScaleUpSize: 3
+    ScaleUpDuration: 0.2
+    ScaleDownDuration: 0.1
+    OriginalColor: {r: 0.8509804, g: 1, b: 0.36862746, a: 0}
+    ColorChangeDuration: 0.1

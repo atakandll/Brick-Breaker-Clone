@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4df4dad84074d6ab6f6ea03c2da3d0c, type: 3}
-  m_Name: CD_BrickShake
+  m_Script: {fileID: 11500000, guid: cb9ccbf90e774afea08119c6df849da4, type: 3}
+  m_Name: CD_EdgeShake
   m_EditorClassIdentifier: 
   Data:
-    positionStrength: {x: 0.3, y: 0.5, z: 0}
-    _rotationStrength: {x: 0.3, y: 0.3, z: 0}
+    positionStrength: {x: 0.3, y: 0.3, z: 0.3}
+    _rotationStrength: {x: 0.3, y: 0.3, z: 0.3}

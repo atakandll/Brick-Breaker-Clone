@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Runtime.Controllers.Paddle;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
@@ -34,7 +35,11 @@ namespace Runtime.Managers
         }
 
         private PaddleData GetPaddleData() => Resources.Load<CD_Paddle>("Data/CD_Paddle").Data;
-        private void SendDataToControllers() => movementController.SetMovementData(_data);
+        private void SendDataToControllers()
+        {
+            movementController.SetMovementData(_data);
+        }
+
         private void OnEnable() => SubscribeEvents();
         
         private void SubscribeEvents()
@@ -48,8 +53,17 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed +=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset += OnReset;
-            
+            ShakeSignals.Instance.onPaddleShake += OnPaddleShake;
+
         }
+
+        private void OnPaddleShake()
+        {
+            transform.DOComplete();
+            transform.DOShakePosition(0.2f, _data.positionStrength);
+            transform.DOShakeRotation(0.2f , _data._rotationStrength);
+        }
+        
         private void OnPlay()
         {
             PaddleSignals.Instance.onPlayConditionChanged?.Invoke(true);
@@ -74,6 +88,8 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed -=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset -= OnReset;
+            ShakeSignals.Instance.onPaddleShake -= OnPaddleShake;
+
         }
     }
 }

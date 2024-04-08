@@ -16,6 +16,7 @@ namespace Runtime.Managers
         private BrickShakeData _data;
         
         #endregion
+        
         #endregion
         
         private void Awake() => _data = GetData();
@@ -23,7 +24,7 @@ namespace Runtime.Managers
         private BrickShakeData GetData() => Resources.Load<CD_BrickShake>("Data/CD_BrickShake").Data;
 
         private void OnEnable() => SubscribeEvents();
-        private void SubscribeEvents() => BrickSignals.Instance.onBrickShake += OnBrickShake;
+        private void SubscribeEvents() => ShakeSignals.Instance.onBrickShake += OnBrickShake;
 
         private void OnBrickShake()
         {

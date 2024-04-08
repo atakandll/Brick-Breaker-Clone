@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBounceAngle: 75
+  managerRigidbody: {fileID: 4501289392884413953}
 --- !u!1 &1141149696937054045
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2560736465361839737}
+  - component: {fileID: 5386671210961550392}
   m_Layer: 0
   m_Name: EdgeManager (3)
   m_TagString: Untagged
@@ -105,6 +107,18 @@ Transform:
   m_Father: {fileID: 8550542641481440314}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5386671210961550392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141149696937054045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619cda237f8444deb7cb21945e22f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196861250993479657
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +131,7 @@ GameObject:
   - component: {fileID: 8995586173074714514}
   m_Layer: 0
   m_Name: Physics
-  m_TagString: Brick
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196861250993479657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -581,7 +595,7 @@ GameObject:
   - component: {fileID: 686759470667805441}
   m_Layer: 0
   m_Name: Physics
-  m_TagString: Brick
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 6593049726006759597}
+  physicController: {fileID: 8019195705560621955}
 --- !u!114 &6593049726006759597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,7 +801,7 @@ GameObject:
   - component: {fileID: 5033261517787565718}
   m_Layer: 0
   m_Name: Physics
-  m_TagString: Brick
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1016,6 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2164915533911323120}
+  - component: {fileID: 1795546118484948707}
   m_Layer: 0
   m_Name: EdgeManager (1)
   m_TagString: Untagged
@@ -1040,6 +1056,18 @@ Transform:
   m_Father: {fileID: 8550542641481440314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795546118484948707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6445898624537183290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619cda237f8444deb7cb21945e22f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6719179625340430525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8670516863324143768}
+  - component: {fileID: 8746454092472624254}
   m_Layer: 0
   m_Name: EdgeManager (2)
   m_TagString: Untagged
@@ -1073,6 +1102,18 @@ Transform:
   m_Father: {fileID: 8550542641481440314}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8746454092472624254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719179625340430525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619cda237f8444deb7cb21945e22f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7319251350545829946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3238255370261341233}
+  - component: {fileID: 1689577810095412065}
   m_Layer: 0
   m_Name: EdgeManager
   m_TagString: Untagged
@@ -1106,6 +1148,18 @@ Transform:
   m_Father: {fileID: 8550542641481440314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689577810095412065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319251350545829946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619cda237f8444deb7cb21945e22f1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7792259691214318308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1172,7 @@ GameObject:
   - component: {fileID: 7733554673589790468}
   m_Layer: 0
   m_Name: Physics
-  m_TagString: Brick
+  m_TagString: Edge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

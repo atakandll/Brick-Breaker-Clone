@@ -4,11 +4,9 @@ using UnityEngine;
 namespace Runtime.Data.ValueObject
 {
     [Serializable]
-    public struct PaddleData
+    public struct EdgeShakeData
     {
-        public float SideWaysSpeed;
         public Vector3 positionStrength;
         public Vector3 _rotationStrength;
     }
-    
 }

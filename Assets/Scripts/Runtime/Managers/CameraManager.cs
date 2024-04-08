@@ -32,7 +32,7 @@ namespace Runtime.Managers
         
         private void OnEnable() => SubscribeEvents();
 
-        private void SubscribeEvents() =>  CameraSignals.Instance.onCameraShake += OnCameraShake;
+        private void SubscribeEvents() =>  ShakeSignals.Instance.onCameraShake += OnCameraShake;
     
         private void OnCameraShake()
         {
@@ -40,13 +40,12 @@ namespace Runtime.Managers
             cameraTransform.DOShakePosition(0.3f, _data.positionStrength);
             cameraTransform.DOShakeRotation(0.3f , _data._rotationStrength);
         }
-        
 
         private void OnDisable() => UnsubscribeEvents();
 
         private void UnsubscribeEvents()
         {
-            CameraSignals.Instance.onCameraShake -= OnCameraShake;
+            ShakeSignals.Instance.onCameraShake -= OnCameraShake;
         }
     }
 }

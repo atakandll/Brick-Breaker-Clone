@@ -52,7 +52,7 @@ namespace Runtime.Controllers.Ball
         }
         internal void ShakeScreen()
         {
-           CameraSignals.Instance.onCameraShake?.Invoke();
+           ShakeSignals.Instance.onCameraShake?.Invoke();
            Debug.Log("ShakeSignals Called");
         }
         internal void TriggerFlashEffect()

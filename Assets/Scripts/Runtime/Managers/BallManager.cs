@@ -54,31 +54,29 @@ namespace Runtime.Managers
         }
         internal void OnInteractionPaddle()
         {
+            ShakeSignals.Instance.onPaddleShake?.Invoke();
             TriggerBrickShake();
             ApplyVisualEffects();
         }
         internal void OnInteractionEdge()
         {
+            TriggerEdgeShake();
             TriggerBrickShake();
             ApplyVisualEffects();
         }
 
-        private void TriggerBrickShake()
-        {
-            BrickSignals.Instance.onBrickShake?.Invoke();
-            
-        }
+        private void TriggerBrickShake() => ShakeSignals.Instance.onBrickShake?.Invoke();
+
+        private void TriggerEdgeShake() => ShakeSignals.Instance.onEdgeShake?.Invoke();
+       
         private void ApplyVisualEffects()
         {
-            spriteController.ChangeColorTemporarily();
             spriteController.ScaleUpBall();
+            spriteController.ChangeColorTemporarily();
             spriteController.ShakeScreen();
         }
-        private void TriggerFlashEffect()
-        {
-            spriteController.TriggerFlashEffect();
-        }
-        
+        private void TriggerFlashEffect() => spriteController.TriggerFlashEffect();
+
         private void OnReset() => movementController.OnReset();
         private void OnDisable() => UnsubscribeEvents();
 

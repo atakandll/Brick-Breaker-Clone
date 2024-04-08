@@ -17,6 +17,7 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private PaddleMovementController movementController;
+        [SerializeField] private PaddleSpriteController spriteController;
 
         #endregion
 
@@ -53,8 +54,13 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed +=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset += OnReset;
+            PaddleSignals.Instance.onInteractionWithBall += InteractionWithBall;
             ShakeSignals.Instance.onPaddleShake += OnPaddleShake;
 
+        }
+        internal void InteractionWithBall()
+        {
+            spriteController.PlayConfetti();
         }
 
         private void OnPaddleShake()
@@ -88,6 +94,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed -=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset -= OnReset;
+            PaddleSignals.Instance.onInteractionWithBall -= InteractionWithBall;
             ShakeSignals.Instance.onPaddleShake -= OnPaddleShake;
 
         }

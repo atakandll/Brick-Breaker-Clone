@@ -19,8 +19,7 @@ namespace Runtime.Controllers.Paddle
         {
             if (other.TryGetComponent(out BallPhysicController ballPhysicController))
             {
-                //ShakeSignals.Instance.onPaddleShake?.Invoke();
-                
+                PaddleSignals.Instance.onInteractionWithBall?.Invoke();
             }
         }
 

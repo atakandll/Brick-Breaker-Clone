@@ -7,5 +7,6 @@ namespace Runtime.Signals
     {
         public UnityAction<bool> onPlayConditionChanged = delegate { };
         public UnityAction<bool> onMoveConditionChanged = delegate { };
+        public UnityAction onInteractionWithBall = delegate { };
     }
 }

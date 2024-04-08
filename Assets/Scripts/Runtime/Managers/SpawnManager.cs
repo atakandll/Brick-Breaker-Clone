@@ -99,6 +99,10 @@ namespace Runtime.Managers
              _bricksSpawnController.Reset();
              
          }
+         internal void ResetBallSpawnController()
+         {
+             _ballSpawnController.Reset();
+         }
  
          private void DeactiveController()
          {

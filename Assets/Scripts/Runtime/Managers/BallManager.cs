@@ -45,33 +45,38 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelSuccessful += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed += () => BallSignals.Instance.onPlayConditionChanged(false);
             CoreGameSignals.Instance.onReset += OnReset;
-
-
         }
-        
-
         internal void OnInteractionWithBricks()
         {
-            BallSignals.Instance.onInteractionEveryObject?.Invoke();
-            spriteController.ChangeColorTemporarily();
-            spriteController.ScaleUpBall();
-            spriteController.ShakeScreen();
-            spriteController.TriggerFlashEffect();
+            TriggerBrickShake();
+            ApplyVisualEffects();
+            TriggerFlashEffect();
         }
         internal void OnInteractionPaddle()
         {
-            BallSignals.Instance.onInteractionEveryObject?.Invoke();
+            TriggerBrickShake();
+            ApplyVisualEffects();
+        }
+        internal void OnInteractionEdge()
+        {
+            TriggerBrickShake();
+            ApplyVisualEffects();
+        }
+
+        private void TriggerBrickShake()
+        {
+            BrickSignals.Instance.onBrickShake?.Invoke();
+            
+        }
+        private void ApplyVisualEffects()
+        {
             spriteController.ChangeColorTemporarily();
             spriteController.ScaleUpBall();
             spriteController.ShakeScreen();
         }
-      
-        internal void OnInteractionEdge()
+        private void TriggerFlashEffect()
         {
-            BallSignals.Instance.onInteractionEveryObject?.Invoke();
-            spriteController.ChangeColorTemporarily();
-            spriteController.ScaleUpBall();
-            spriteController.ShakeScreen();
+            spriteController.TriggerFlashEffect();
         }
         
         private void OnReset() => movementController.OnReset();

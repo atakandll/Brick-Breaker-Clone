@@ -1,4 +1,5 @@
 ﻿using System;
+using Runtime.Controllers.Ball;
 using Runtime.Enums;
 using Runtime.Signals;
 using UnityEngine;
@@ -7,7 +8,8 @@ namespace Runtime.Managers
 {
     public class UIManager : MonoBehaviour
     {
-        
+        [SerializeField]  SpawnManager _spawnManager;
+
         private void OnEnable()
         {
             SubscribeEvents();
@@ -40,6 +42,7 @@ namespace Runtime.Managers
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
             CoreUISignals.Instance.onClosePanel?.Invoke(0);
+
             
         }
         private void OnOpenWinPanel()
@@ -60,7 +63,8 @@ namespace Runtime.Managers
 
         public void OnRestartLevel()
         {
-            CoreGameSignals.Instance.onRestartLevel?.Invoke();
+            CoreGameSignals.Instance.onPlay?.Invoke();
+            _spawnManager.ResetBallSpawnController();
             
         }
 

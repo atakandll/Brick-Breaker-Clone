@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using Runtime.Controllers.Flash;
 using Runtime.Data.ValueObject;
+using Runtime.Signals;
 using UnityEngine;
 
 namespace Runtime.Controllers.Ball
@@ -41,7 +42,6 @@ namespace Runtime.Controllers.Ball
         {
             transform.DOScale(_data.ScaleUpSize, _data.ScaleUpDuration).SetEase(Ease.Flash)
                 .OnComplete(() => transform.DOScale(_originalScale, _data.ScaleDownDuration));
-            PlayDotweenAnimation();
             
         }
 
@@ -49,27 +49,17 @@ namespace Runtime.Controllers.Ball
         {
             renderer.DOColor(Color.white, _data.ColorChangeDuration).SetEase(Ease.Flash)
                 .OnComplete(() => renderer.DOColor(_originalColor, _data.ColorChangeDuration));
-            PlayDotweenAnimation();
         }
         internal void ShakeScreen()
         {
-            var originalPosition = Camera.main.transform.position;
-
-            Camera.main.transform.DOShakePosition(0.4f, 1f, 20, 90, false, true)
-                .OnComplete(() => 
-                {
-                    PlayDotweenAnimation();
-                    Camera.main.transform.position = originalPosition;
-                });
+           CameraSignals.Instance.onCameraShake?.Invoke();
+           Debug.Log("ShakeSignals Called");
         }
         internal void TriggerFlashEffect()
         {
             FindObjectOfType<FlashEffectController>().Flash();
         }
-        internal void PlayDotweenAnimation()
-        {
-        }
-        
+       
 
     }
 }

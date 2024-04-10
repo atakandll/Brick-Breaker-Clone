@@ -36,7 +36,7 @@ namespace Runtime.Managers
 
         private void OnDisable() => UnsubscribeEvents();
 
-        private void UnsubscribeEvents() => BallSignals.Instance.onInteractionEveryObject -= OnBrickShake;
+        private void UnsubscribeEvents() => ShakeSignals.Instance.onBrickShake -= OnBrickShake;
        
     }
 }

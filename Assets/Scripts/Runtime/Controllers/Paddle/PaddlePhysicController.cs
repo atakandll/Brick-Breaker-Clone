@@ -1,25 +1,24 @@
 ﻿using System;
 using DG.Tweening;
-using Runtime.Controllers.Ball;
-using Runtime.Data.ValueObject;
-using Runtime.Interfaces;
+using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
-using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Paddle
 {
     public class PaddlePhysicController : MonoBehaviour
     {
         [SerializeField] private float maxBounceAngle = 50f;
+        [SerializeField] public PaddleManager paddleManager;
         
       
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out BallPhysicController ballPhysicController))
+            if (other.CompareTag("Ball"))
             {
                 PaddleSignals.Instance.onInteractionWithBall?.Invoke();
+
             }
         }
 

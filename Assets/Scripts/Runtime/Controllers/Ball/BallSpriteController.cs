@@ -14,6 +14,7 @@ namespace Runtime.Controllers.Ball
 
         [SerializeField] private ParticleSystem confetti;
         [SerializeField] private new SpriteRenderer renderer;
+        [SerializeField] private TrailRenderer trailRenderer;
        
         
         #endregion
@@ -45,10 +46,17 @@ namespace Runtime.Controllers.Ball
             
         }
 
-        internal void ChangeColorTemporarily()
+        internal void ChangeBallColor()
         {
-            renderer.DOColor(Color.white, _data.ColorChangeDuration).SetEase(Ease.Flash)
-                .OnComplete(() => renderer.DOColor(_originalColor, _data.ColorChangeDuration));
+            trailRenderer.startColor = Color.white;
+            trailRenderer.endColor = Color.white;
+            renderer.DOColor(Color.white, _data.ColorChangeDuration)
+                .OnComplete(() =>
+                {
+                    renderer.DOColor(_originalColor, _data.ColorChangeDuration);
+                    trailRenderer.startColor = new Color(1f, 0.56f, 0f);
+                    trailRenderer.endColor = new Color(1f, 0.56f, 0f);
+                });
         }
         internal void ShakeScreen()
         {

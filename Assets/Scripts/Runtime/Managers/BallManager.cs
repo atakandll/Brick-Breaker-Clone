@@ -54,7 +54,6 @@ namespace Runtime.Managers
         }
         internal void OnInteractionPaddle()
         {
-            ShakeSignals.Instance.onPaddleShake?.Invoke();
             TriggerBrickShake();
             ApplyVisualEffects();
         }
@@ -72,7 +71,7 @@ namespace Runtime.Managers
         private void ApplyVisualEffects()
         {
             spriteController.ScaleUpBall();
-            spriteController.ChangeColorTemporarily();
+            spriteController.ChangeBallColor();
             spriteController.ShakeScreen();
         }
         private void TriggerFlashEffect() => spriteController.TriggerFlashEffect();

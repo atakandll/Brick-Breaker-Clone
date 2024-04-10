@@ -25,12 +25,16 @@ namespace Runtime.Controllers.Ball
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out PaddlePhysicController paddlePhysicController))
+            if (other.gameObject.CompareTag("Paddle"))
             {
-               ballManager.OnInteractionPaddle();
+                Debug.Log("Paddle la etkileşime girdi");
+                ShakeSignals.Instance.onPaddleShake?.Invoke();
+                ballManager.OnInteractionPaddle();
             }
             if (other.gameObject.CompareTag("Brick"))
             {
+                Debug.Log("Brick la etkileşime girdi");
+
                 PushToPool(PoolObjectType.Bricks, other.gameObject);
                 ballManager.OnInteractionWithBricks();
                 

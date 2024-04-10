@@ -54,11 +54,11 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed +=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset += OnReset;
-            PaddleSignals.Instance.onInteractionWithBall += InteractionWithBall;
+            PaddleSignals.Instance.onInteractionWithBall += OnInteractionWithBall;
             ShakeSignals.Instance.onPaddleShake += OnPaddleShake;
 
         }
-        internal void InteractionWithBall()
+        private void OnInteractionWithBall()
         {
             spriteController.PlayConfetti();
         }
@@ -94,7 +94,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onLevelFailed -=
                 () => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(false);
             CoreGameSignals.Instance.onReset -= OnReset;
-            PaddleSignals.Instance.onInteractionWithBall -= InteractionWithBall;
+            PaddleSignals.Instance.onInteractionWithBall -= OnInteractionWithBall;
             ShakeSignals.Instance.onPaddleShake -= OnPaddleShake;
 
         }

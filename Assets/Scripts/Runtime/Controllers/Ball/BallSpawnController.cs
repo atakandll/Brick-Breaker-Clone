@@ -4,7 +4,6 @@ using Runtime.Data.ValueObject;
 using Runtime.Enums;
 using Runtime.Extensions;
 using Runtime.Interfaces;
-using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
 
@@ -59,7 +58,6 @@ namespace Runtime.Controllers.Ball
                 ballMovement.LaunchBall();
                 
             }
-        
             
         }
 

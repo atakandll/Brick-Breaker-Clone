@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CD_BrickShake
   m_EditorClassIdentifier: 
   Data:
-    positionStrength: {x: 0.3, y: 0.5, z: 0}
-    _rotationStrength: {x: 0.3, y: 0.3, z: 0}
+    positionStrength: {x: 0.5, y: 0.5, z: 0}
+    _rotationStrength: {x: 0.5, y: 0.5, z: 0}

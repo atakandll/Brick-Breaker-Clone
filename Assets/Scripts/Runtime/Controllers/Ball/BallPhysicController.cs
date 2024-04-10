@@ -77,7 +77,6 @@ namespace Runtime.Controllers.Ball
             {
                 Debug.Log("Edgele etkileşime girdi");
                 ballManager.OnInteractionEdge();
-
             }
         }
 

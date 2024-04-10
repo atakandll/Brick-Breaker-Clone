@@ -39,6 +39,7 @@ namespace Runtime.Managers
         private void SendDataToControllers()
         {
             movementController.SetMovementData(_data);
+            spriteController.SetSpriteData(_data);
         }
 
         private void OnEnable() => SubscribeEvents();
@@ -58,18 +59,6 @@ namespace Runtime.Managers
             ShakeSignals.Instance.onPaddleShake += OnPaddleShake;
 
         }
-        private void OnInteractionWithBall()
-        {
-            spriteController.PlayConfetti();
-        }
-
-        private void OnPaddleShake()
-        {
-            transform.DOComplete();
-            transform.DOShakePosition(0.2f, _data.positionStrength);
-            transform.DOShakeRotation(0.2f , _data._rotationStrength);
-        }
-        
         private void OnPlay()
         {
             PaddleSignals.Instance.onPlayConditionChanged?.Invoke(true);
@@ -79,6 +68,8 @@ namespace Runtime.Managers
         {
             movementController.UpdateInputValue(inputParams);
         }
+        private void OnInteractionWithBall() => spriteController.PlayConfetti();
+        private void OnPaddleShake() => spriteController.ShakePaddle();
         private void OnReset() => movementController.OnReset();
         
         private void OnDisable() => UnsubscribeEvents();

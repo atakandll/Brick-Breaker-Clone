@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: CD_Ball
   m_EditorClassIdentifier: 
   Data:
-    Speed: 25
-    MaxSpeed: 35
-    ScaleUpSize: 3
+    Speed: 30
+    MaxSpeed: 40
+    ScaleUpSize: 4
     ScaleUpDuration: 0.2
     ScaleDownDuration: 0.1
     OriginalColor: {r: 0.8509804, g: 1, b: 0.36862746, a: 0}
-    ColorChangeDuration: 0.1
+    ColorChangeDuration: 0.3

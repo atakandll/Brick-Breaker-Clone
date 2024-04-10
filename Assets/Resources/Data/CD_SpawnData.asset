@@ -21,6 +21,6 @@ MonoBehaviour:
       SpawnLimit: 49
       BrickSpawnZone: {fileID: 1887200101496106930, guid: e7b6fb6c242ec2c4eb45ddb716209b7c, type: 3}
     BallSpawnData:
-      SpawnLimit: 10
+      SpawnLimit: 15
       SpawnRange: 2
       BallSpawnZone: {fileID: 1887200101496106930, guid: e7b6fb6c242ec2c4eb45ddb716209b7c, type: 3}

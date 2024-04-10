@@ -1,8 +1,10 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Runtime.Controllers.Flash;
 using Runtime.Data.ValueObject;
 using Runtime.Signals;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.Controllers.Ball
 {
@@ -12,7 +14,7 @@ namespace Runtime.Controllers.Ball
 
         #region Serialized Variables
 
-        [SerializeField] private ParticleSystem confetti;
+        [SerializeField] private ParticleSystem ballParticle;
         [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private TrailRenderer trailRenderer;
        
@@ -33,7 +35,7 @@ namespace Runtime.Controllers.Ball
             _originalScale = transform.localScale;
             _originalColor = renderer.color;
         }
-        
+
         internal void SetData(BallData data)
         {
             _data = data;
@@ -66,6 +68,12 @@ namespace Runtime.Controllers.Ball
         internal void TriggerFlashEffect()
         {
             FindObjectOfType<FlashEffectController>().Flash();
+        }
+
+        internal void PlayBallParticle()
+        {
+            if(ballParticle == null) return;
+            ballParticle.Play();
         }
        
 

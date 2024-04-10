@@ -44,8 +44,12 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onPlay += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelSuccessful += () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed += () => BallSignals.Instance.onPlayConditionChanged(false);
+            BallSignals.Instance.onInteractionAllObjects += OnInteractionAllObjects;
             CoreGameSignals.Instance.onReset += OnReset;
         }
+
+        private void OnInteractionAllObjects() => spriteController.PlayBallParticle();
+        
         internal void OnInteractionWithBricks()
         {
             TriggerBrickShake();
@@ -84,6 +88,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onPlay -= () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelSuccessful -= () => BallSignals.Instance.onPlayConditionChanged(true);
             CoreGameSignals.Instance.onLevelFailed -= () => BallSignals.Instance.onPlayConditionChanged(false);
+            BallSignals.Instance.onInteractionAllObjects -= OnInteractionAllObjects;
             CoreGameSignals.Instance.onReset -= OnReset;
             
         }

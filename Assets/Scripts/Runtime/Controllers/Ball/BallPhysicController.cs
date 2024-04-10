@@ -59,6 +59,7 @@ namespace Runtime.Controllers.Ball
             {
                 Debug.Log("Paddle la etkileşime girdi");
                 ShakeSignals.Instance.onPaddleShake?.Invoke();
+                BallSignals.Instance.onInteractionAllObjects?.Invoke();
                 ballManager.OnInteractionPaddle();
                 return;
             }
@@ -76,6 +77,7 @@ namespace Runtime.Controllers.Ball
             if (other.gameObject.CompareTag("Edge"))
             {
                 Debug.Log("Edgele etkileşime girdi");
+                BallSignals.Instance.onInteractionAllObjects?.Invoke();
                 ballManager.OnInteractionEdge();
             }
         }

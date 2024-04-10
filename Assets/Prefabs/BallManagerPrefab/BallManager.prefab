@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 138128491793712124}
   - component: {fileID: 4639550030672804718}
   - component: {fileID: 7569909790823618757}
-  - component: {fileID: 524731215615151041}
+  - component: {fileID: 8495991178000251991}
   m_Layer: 7
   m_Name: BallManager
   m_TagString: Untagged
@@ -187,7 +187,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 20aa2ef02847fdb41ae54333f2be98b8, type: 2}
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
@@ -326,7 +326,7 @@ TrailRenderer:
   m_MinVertexDistance: 1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!61 &524731215615151041
+--- !u!61 &8495991178000251991
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,18 +339,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0025270581, y: -0.00000023841858}
+  m_Offset: {x: 0.009471357, y: 0.0005117655}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0555946, y: 1.0505404}
+  m_Size: {x: 1.0055171, y: 0.9981787}
   m_EdgeRadius: 0
 --- !u!1 &7155580379179171356
 GameObject:
@@ -394,7 +394,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7155580379179171356}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 20aa2ef02847fdb41ae54333f2be98b8, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -424,3 +424,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballManager: {fileID: 138128491793712124}
+  managerRigidbody: {fileID: 5400119365592613666}
+  boxCollider: {fileID: 5556691596598502998}
+  maxBounceAngle: 50

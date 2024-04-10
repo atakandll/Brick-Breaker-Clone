@@ -35,6 +35,7 @@ namespace Runtime.Controllers.Ball
 
         private void FixedUpdate()
         {
+            FaceVelocity();
             if (_isReadyToPlay)
             {
                 rigidbody.gravityScale = 1;
@@ -57,6 +58,15 @@ namespace Runtime.Controllers.Ball
             Vector2 force = new Vector2(Random.Range(-2f, 2f), 1);
             rigidbody.AddForce(force.normalized * _data.Speed, ForceMode2D.Impulse);
         }
+        private void FaceVelocity()
+        {
+            Vector2 velocity = rigidbody.velocity;
+
+            Vector3 targetPosition = (Vector3)transform.position + new Vector3(velocity.x, velocity.y, 0);
+
+            transform.up = targetPosition - transform.position;
+        }
+        
         
         private void Stop()
         {

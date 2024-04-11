@@ -17,7 +17,6 @@ namespace Runtime.Controllers.Ball
         [SerializeField] private ParticleSystem ballParticle;
         [SerializeField] private new SpriteRenderer renderer;
         [SerializeField] private TrailRenderer trailRenderer;
-       
         
         #endregion
 
@@ -30,17 +29,14 @@ namespace Runtime.Controllers.Ball
         #endregion
 
         #endregion
-        private void Awake()
+        private void Awake() => GetOriginalValues();
+        private void GetOriginalValues()
         {
             _originalScale = transform.localScale;
             _originalColor = renderer.color;
         }
-
-        internal void SetData(BallData data)
-        {
-            _data = data;
-        }
-
+        internal void SetData(BallData data) => _data = data;
+      
         internal void ScaleUpBall()
         {
             transform.DOScale(_data.ScaleUpSize, _data.ScaleUpDuration).SetEase(Ease.Flash)
@@ -60,6 +56,16 @@ namespace Runtime.Controllers.Ball
                     trailRenderer.endColor = new Color(1f, 0.56f, 0f);
                 });
         }
+        internal void PlayEdgeAndPaddleParticle()
+        {
+            if(ballParticle != null)
+                ballParticle.Play();
+        }
+
+        internal void PlayBrickParticle()
+        {
+            
+        }
         internal void ShakeScreen()
         {
            ShakeSignals.Instance.onCameraShake?.Invoke();
@@ -70,11 +76,7 @@ namespace Runtime.Controllers.Ball
             FindObjectOfType<FlashEffectController>().Flash();
         }
 
-        internal void PlayBallParticle()
-        {
-            if(ballParticle == null) return;
-            ballParticle.Play();
-        }
+       
        
 
     }

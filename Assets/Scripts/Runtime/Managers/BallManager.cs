@@ -48,7 +48,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onReset += OnReset;
         }
 
-        private void OnInteractionAllObjects() => spriteController.PlayBallParticle();
+        private void OnInteractionAllObjects() => spriteController.PlayEdgeAndPaddleParticle();
         
         internal void OnInteractionWithBricks()
         {

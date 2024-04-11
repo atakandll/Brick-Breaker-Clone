@@ -12,7 +12,7 @@ using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Ball
 {
-    public class BallPhysicController : MonoBehaviour, IPushObject
+    public class BallPhysicController : MonoBehaviour
     {
         #region Self Variables
 
@@ -61,32 +61,31 @@ namespace Runtime.Controllers.Ball
                 ShakeSignals.Instance.onPaddleShake?.Invoke();
                 BallSignals.Instance.onInteractionAllObjects?.Invoke();
                 ballManager.OnInteractionPaddle();
-                return;
             }
 
             if (other.gameObject.CompareTag("Brick"))
             {
-                Debug.Log("Brick la etkileşime girdi");
+                var brickManager = other.GetComponent<BrickManager>();
                 ReflectBall(other);
                 ballManager.OnInteractionWithBricks();
-                PushToPool(PoolObjectType.Bricks, other.gameObject);
-                return;
+                if ( brickManager != null)
+                {
+                    Debug.Log("BrickManager bulundu");
+                    brickManager.DestroyBrick();
+                }
+               
 
             }
 
             if (other.gameObject.CompareTag("Edge"))
             {
                 Debug.Log("Edgele etkileşime girdi");
-                BallSignals.Instance.onInteractionAllObjects?.Invoke();
                 ballManager.OnInteractionEdge();
+                BallSignals.Instance.onInteractionAllObjects?.Invoke();
             }
         }
 
-        public void PushToPool(PoolObjectType poolObjectType, GameObject obj)
-        {
-            PoolSignals.Instance.onReleasePoolObject(poolObjectType, obj);
-            Debug.Log("Brickler poola geri döndü");
-        }
+       
 
         private void ReflectBall(Collider2D brick)
         {

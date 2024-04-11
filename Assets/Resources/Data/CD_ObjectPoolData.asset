@@ -20,4 +20,4 @@ MonoBehaviour:
   - PoolObjectType: 1
     PoolType: 0
     PoolObject: {fileID: 7084105906177246612, guid: f79e74149f767b5438fc120af6ac73ce, type: 3}
-    PoolSize: 15
+    PoolSize: 16

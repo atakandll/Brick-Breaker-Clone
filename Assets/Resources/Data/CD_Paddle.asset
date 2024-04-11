@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     SideWaysSpeed: 20
-    positionStrength: {x: 0.5, y: 0.5, z: 0}
-    _rotationStrength: {x: 0.5, y: 0.5, z: 0}
+    positionStrength: {x: 0.5, y: 0.5, z: 0.5}
+    _rotationStrength: {x: 0.5, y: 0.5, z: 0.5}
+    HappyMouthScale: 2.2
+    SadMouthScale: -1.7
+    HappyMouthScaleDuration: 0.1
+    SadMouthScaleDuration: 8

@@ -36,7 +36,6 @@ namespace Runtime.Managers
         private void Awake() => PoolGenerator();
         private void PoolGenerator()
         {
-            Debug.Log("Pool Generator Çalıştı");
             objectPool = new SerializedDictionary<PoolObjectType, Queue<GameObject>>();
 
             for (; poolCount < _loadPoolCount; poolCount++)
@@ -73,7 +72,6 @@ namespace Runtime.Managers
 
         private GameObject OnGetPoolObject(PoolObjectType type)
         {
-            Debug.Log("Pulldan Çektik AgaNiga");
             if (objectPool[type].Count == 0 && data.ObjectData[(int)type].PoolType == PoolType.Dynamic)
             {
                 _getObjectFromPool = Instantiate(data.ObjectData[(int)type].PoolObject, poolholder.transform);

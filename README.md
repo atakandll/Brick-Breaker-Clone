@@ -27,7 +27,8 @@ This repository contains the source code for an enhanced version of the classic 
   
 - ## Event-Driven Architecture:
 - Leverages a signal-based system to facilitate communication between various game managers, promoting loose coupling and event-driven interactions.
-  # Example for input signals.
+  
+  ## Example for signals.
   
 ```csharp
 public class InputSignals : MonoSingleton<InputSignals>

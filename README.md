@@ -43,7 +43,7 @@ public class InputSignals : MonoSingleton<InputSignals>
 
 
   
-- ## Juiced-Up Interactions:
+ ## Juiced-Up Interactions:
 - Incorporates polished game feel techniques such as tweening, particle effects, and responsive sound design to elevate the player experience.
 
   ![simsizvideoClipchampileyapld1-ezgif com-video-to-gif-converter](https://github.com/atakandll/Brick-Breaker-Clone/assets/130579265/93124583-5f5c-4120-8b2d-1358f9bbc434)
@@ -150,7 +150,7 @@ The game is built upon a robust system of controllers and managers: For example;
     }
   ```
   
-- **Pooling and Spawning:** `PoolManager` and `SpawnManager` work in tandem to efficiently handle the lifecycle and behavior of game objects using the pooling technique.
+ **Pooling and Spawning:** `PoolManager` and `SpawnManager` work in tandem to efficiently handle the lifecycle and behavior of game objects using the pooling technique.
   ## Pool system in this project;
   
   ```csharp

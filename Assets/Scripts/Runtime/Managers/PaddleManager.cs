@@ -62,7 +62,12 @@ namespace Runtime.Managers
         {
             movementController.UpdateInputValue(inputParams);
         }
-        private void OnInteractionWithBall() => spriteController.PlayConfetti();
+        private void OnInteractionWithBall()
+        {
+            spriteController.PlayConfetti();
+            spriteController.PaddleMouthSmile();
+        }
+
         private void OnPaddleShake() => spriteController.ShakePaddle();
         private void OnReset() => movementController.OnReset();
         

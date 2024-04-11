@@ -11,7 +11,7 @@ namespace Runtime.Controllers.Paddle
         #region Serialized Variables
 
         [SerializeField] private ParticleSystem confetti;
-        [SerializeField] private new SpriteRenderer renderer;
+        [SerializeField] private GameObject mouthObject;
 
         #endregion
 
@@ -26,6 +26,15 @@ namespace Runtime.Controllers.Paddle
             transform.DOComplete();
             transform.DOShakePosition(0.2f, _data.positionStrength);
             transform.DOShakeRotation(0.2f , _data._rotationStrength);
+        }
+
+        internal void PaddleMouthSmile()
+        {
+            mouthObject.transform.DOComplete();
+            mouthObject.transform.DOScale(_data.HappyMouthScale, _data.HappyMouthScaleDuration).OnComplete(() =>
+            {
+                mouthObject.transform.DOScale(_data.SadMouthScale, _data.SadMouthScaleDuration);
+            });
         }
     }
 }

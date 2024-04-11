@@ -59,14 +59,8 @@ namespace Runtime.Controllers.Ball
             if(ballParticle != null)
                 ballParticle.Play();
         }
-        internal void ShakeScreen()
-        {
-           ShakeSignals.Instance.onCameraShake?.Invoke();
-           Debug.Log("ShakeSignals Called");
-        }
-        internal void TriggerFlashEffect()
-        {
-            FindObjectOfType<FlashEffectController>().Flash();
-        }
+        internal void ShakeScreen() => ShakeSignals.Instance.onCameraShake?.Invoke();
+        internal void TriggerFlashEffect() => FindObjectOfType<FlashEffectController>().Flash();
+
     }
 }

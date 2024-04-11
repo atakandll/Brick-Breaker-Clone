@@ -13,7 +13,6 @@ namespace Runtime.Controllers.Ball
         [SerializeField] private BallManager ballManager;
         [SerializeField] private new Rigidbody2D managerRigidbody;
         [SerializeField] private BoxCollider2D boxCollider;
-        [SerializeField] private float maxBounceAngle = 50f;
 
         #endregion
 

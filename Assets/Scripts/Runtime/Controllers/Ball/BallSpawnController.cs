@@ -57,9 +57,7 @@ namespace Runtime.Controllers.Ball
             {
                 ballMovement._isReadyToPlay = true;
                 ballMovement.LaunchBall();
-                
             }
-            
         }
 
         public void Reset()
@@ -67,7 +65,6 @@ namespace Runtime.Controllers.Ball
             foreach (var ball in _spawnedObjects)
             {
                 PushToPool(PoolObjectType.Ball,ball);
-                
             }
         }
 

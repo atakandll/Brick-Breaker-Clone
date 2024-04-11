@@ -5,11 +5,7 @@ namespace Runtime.Controllers.Paddle
 {
     public class PaddleEyeFollowController : MonoBehaviour
     {
-        private void Update()
-        {
-            FollowTarget();
-        }
-    
+        private void Update() => FollowTarget();
         private void FollowTarget(){
             
             var ball = FindObjectOfType<BallManager>().transform.position;

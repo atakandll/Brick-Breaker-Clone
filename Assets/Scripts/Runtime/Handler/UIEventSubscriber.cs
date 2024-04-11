@@ -28,11 +28,7 @@ namespace Runtime.Handler
 
         private void Awake() => FindReferences();
 
-        private void FindReferences()
-        {
-            _manager = FindObjectOfType<UIManager>();
-            Logger.Instance.Log<UIEventSubscriber>("UIManager Found","green");
-        }
+        private void FindReferences() => _manager = FindObjectOfType<UIManager>();
         private void OnEnable() => SubscribeEvents();
         private void SubscribeEvents()
         {

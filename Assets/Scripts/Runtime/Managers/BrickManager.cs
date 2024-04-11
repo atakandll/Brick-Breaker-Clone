@@ -47,7 +47,7 @@ namespace Runtime.Managers
 
         private IEnumerator ReturnToPoolAfterParticles()
         {
-            yield return new WaitForSeconds(brickParticle.main.duration);
+            yield return new WaitForSeconds(0.3f);
         
             PoolSignals.Instance.onReleasePoolObject?.Invoke(PoolObjectType.Bricks, gameObject);
         }

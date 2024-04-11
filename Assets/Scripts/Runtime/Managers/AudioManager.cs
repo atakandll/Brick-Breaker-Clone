@@ -1,6 +1,4 @@
-﻿using System;
-using MoreMountains.Tools;
-using Runtime.Signals;
+﻿using Runtime.Signals;
 using UnityEngine;
 
 namespace Runtime.Managers
@@ -46,12 +44,7 @@ namespace Runtime.Managers
                 comboCount = 0;
             }
         }
-
-        private void OnLevelMusic()
-        {
-            audioSource.PlayOneShot(levelMusic);
-        }
-
+        private void OnLevelMusic() => audioSource.PlayOneShot(levelMusic);
         private void OnInteractionBrickSound()
         {
             timer = 0;
@@ -60,17 +53,8 @@ namespace Runtime.Managers
             if (comboCount < brickInteractionMusic.Length - 1)
                 comboCount++;
         }
+        private void OnInteractionPaddleSound() =>  audioSource.PlayOneShot(paddleInteractionMusic);
+        private void OnInteractionEdgeSound() => audioSource.PlayOneShot(edgeInteractionMusic);
 
-
-        private void OnInteractionPaddleSound()
-        {
-            audioSource.PlayOneShot(paddleInteractionMusic);
-        }
-        private void OnInteractionEdgeSound()
-        {
-           audioSource.PlayOneShot(edgeInteractionMusic);
-        }
-
-       
     }
 }

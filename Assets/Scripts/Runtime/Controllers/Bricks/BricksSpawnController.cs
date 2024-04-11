@@ -28,20 +28,15 @@ namespace Runtime.Controllers.Bricks
         {
             _spawnManager = spawnManager;
             _data = _spawnManager.Data.BricksSpawnData;
-            Debug.Log("BricksSpawnController Çalıştı");
             
         }
         public void TriggerAction()
         {
             if (!IsActivating) return;
             Spawn();
-                
-            Debug.Log("BricksSpawnController TriggerAction Çalıştı");
-            
         }
         public void Spawn()
         {
-            Debug.Log("Spanw method çalıştı");
             int totalBricksPerRow = _data.BricksPerRow;
             for (int i = 0; i < _data.SpawnLimit; i++)
             {
@@ -63,7 +58,6 @@ namespace Runtime.Controllers.Bricks
             foreach (var brick in _spawnedObjects)
             {
                 PushToPool(PoolObjectType.Bricks,brick);
-                
             }
         }
         public void PushToPool(PoolObjectType poolObjectType, GameObject obj)

@@ -1,10 +1,8 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Runtime.Controllers.Flash;
 using Runtime.Data.ValueObject;
 using Runtime.Signals;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.Controllers.Ball
 {
@@ -61,11 +59,6 @@ namespace Runtime.Controllers.Ball
             if(ballParticle != null)
                 ballParticle.Play();
         }
-
-        internal void PlayBrickParticle()
-        {
-            
-        }
         internal void ShakeScreen()
         {
            ShakeSignals.Instance.onCameraShake?.Invoke();
@@ -75,9 +68,5 @@ namespace Runtime.Controllers.Ball
         {
             FindObjectOfType<FlashEffectController>().Flash();
         }
-
-       
-       
-
     }
 }

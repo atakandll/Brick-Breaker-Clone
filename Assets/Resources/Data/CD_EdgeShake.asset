@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CD_EdgeShake
   m_EditorClassIdentifier: 
   Data:
-    positionStrength: {x: 0.4, y: 0.4, z: 0.4}
-    _rotationStrength: {x: 0.4, y: 0.4, z: 0.4}
+    positionStrength: {x: 0.5, y: 0.5, z: 0}
+    _rotationStrength: {x: 0.5, y: 0.5, z: 0}

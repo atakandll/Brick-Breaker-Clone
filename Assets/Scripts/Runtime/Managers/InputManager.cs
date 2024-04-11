@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
 using Runtime.Keys;
@@ -32,19 +31,13 @@ namespace Runtime.Managers
 
         #endregion
 
-        private void Awake()
-        {
-            _data = GetInputData();
-            Logger.Instance.Log<InputManager>("InputData Loaded", "green", _data.GetType());
-           
-        }
+        private void Awake() => _data = GetInputData();
         private InputData GetInputData() => Resources.Load<CD_Input>("Data/CD_Input").Data;
 
         private void OnEnable() => SubscribeEvents();
 
         private void SubscribeEvents()
         {
-            Logger.Instance.Log<InputManager>("InputEvents Subscribed", "red");
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onPlay += OnPlay;
             InputSignals.Instance.onChangeInputState += OnChangeInputState;

@@ -52,6 +52,7 @@ namespace Runtime.Managers
         
         internal void OnInteractionWithBricks()
         {
+            AudioSignals.Instance.onInteractionBrickSound?.Invoke();
             TriggerBrickShake();
             ApplyVisualEffects();
             TriggerFlashEffect();

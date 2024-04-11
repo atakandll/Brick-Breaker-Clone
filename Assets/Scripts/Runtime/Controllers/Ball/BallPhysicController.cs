@@ -1,14 +1,6 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using DG.Tweening;
-using Runtime.Controllers.Paddle;
-using Runtime.Enums;
-using Runtime.Interfaces;
-using Runtime.Managers;
+﻿using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Ball
 {
@@ -57,7 +49,6 @@ namespace Runtime.Controllers.Ball
         {
             if (other.gameObject.CompareTag("Paddle"))
             {
-                Debug.Log("Paddle la etkileşime girdi");
                 ShakeSignals.Instance.onPaddleShake?.Invoke();
                 BallSignals.Instance.onInteractionAllObjects?.Invoke();
                 ballManager.OnInteractionPaddle();
@@ -68,31 +59,23 @@ namespace Runtime.Controllers.Ball
                 var brickManager = other.GetComponent<BrickManager>();
                 ReflectBall(other);
                 ballManager.OnInteractionWithBricks();
+                
                 if ( brickManager != null)
                 {
-                    Debug.Log("BrickManager bulundu");
                     brickManager.DestroyBrick();
                 }
-               
-
             }
-
             if (other.gameObject.CompareTag("Edge"))
             {
-                Debug.Log("Edgele etkileşime girdi");
+                AudioSignals.Instance.onInteractionEdgeSound?.Invoke();
                 ballManager.OnInteractionEdge();
                 BallSignals.Instance.onInteractionAllObjects?.Invoke();
             }
         }
-
-       
-
         private void ReflectBall(Collider2D brick)
         {
             Vector2 directionToBrick = brick.transform.position - transform.position;
-
             var reflectionDirection = Vector2.Reflect(managerRigidbody.velocity.normalized, directionToBrick.normalized);
-
             managerRigidbody.velocity = reflectionDirection * managerRigidbody.velocity.magnitude;
         }
     }

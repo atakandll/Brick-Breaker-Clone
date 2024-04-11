@@ -19,24 +19,13 @@ namespace Runtime.Controllers.Paddle
         
         private PaddleData _data;
         
-        internal void SetSpriteData(PaddleData data)
-        {
-            _data = data;
-        }
-        
-        internal void PlayConfetti()
-        {
-            Debug.Log("Confetti oynatılıyor.");
-            confetti.Play();
-        }
-
+        internal void SetSpriteData(PaddleData data) => _data = data;
+        internal void PlayConfetti() => confetti.Play();
         internal void ShakePaddle()
         {
             transform.DOComplete();
             transform.DOShakePosition(0.2f, _data.positionStrength);
             transform.DOShakeRotation(0.2f , _data._rotationStrength);
         }
-        
-        
     }
 }

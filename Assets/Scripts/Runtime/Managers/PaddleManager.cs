@@ -1,12 +1,9 @@
-﻿using System;
-using DG.Tweening;
-using Runtime.Controllers.Paddle;
+﻿using Runtime.Controllers.Paddle;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
 using Runtime.Keys;
 using Runtime.Signals;
 using UnityEngine;
-using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Managers
 {
@@ -59,10 +56,7 @@ namespace Runtime.Managers
             ShakeSignals.Instance.onPaddleShake += OnPaddleShake;
 
         }
-        private void OnPlay()
-        {
-            PaddleSignals.Instance.onPlayConditionChanged?.Invoke(true);
-        }
+        private void OnPlay() => PaddleSignals.Instance.onPlayConditionChanged?.Invoke(true);
 
         private void OnInputDragged(HorizontalInputParams inputParams)
         {

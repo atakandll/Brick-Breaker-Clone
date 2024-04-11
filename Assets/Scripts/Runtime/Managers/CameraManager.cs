@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
-using Runtime.Enums;
 using Runtime.Signals;
 
 namespace Runtime.Managers
@@ -43,9 +41,6 @@ namespace Runtime.Managers
 
         private void OnDisable() => UnsubscribeEvents();
 
-        private void UnsubscribeEvents()
-        {
-            ShakeSignals.Instance.onCameraShake -= OnCameraShake;
-        }
+        private void UnsubscribeEvents() => ShakeSignals.Instance.onCameraShake -= OnCameraShake;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections;
 using DG.Tweening;
 using Runtime.Data.UnityObject;
 using Runtime.Data.ValueObject;
@@ -17,8 +15,7 @@ namespace Runtime.Managers
         #region Serialized Variables
 
         [SerializeField] private ParticleSystem brickParticle;
-
-
+        
         #endregion
         
         #region Private Variables
@@ -29,35 +26,11 @@ namespace Runtime.Managers
         
         #endregion
         
-        private void Awake()
-        {
-            GetReference();
-        }
-        private void GetReference()
-        {
-            _data = GetData();
-        }
-
+        private void Awake() => GetReference();
+        private void GetReference() => _data = GetData();
         private BrickShakeData GetData() => Resources.Load<CD_BrickShake>("Data/CD_BrickShake").Data;
-
         private void OnEnable() => SubscribeEvents();
-        private void SubscribeEvents()
-        {
-            ShakeSignals.Instance.onBrickShake += OnBrickShake;
-        }
-        internal void TriggerParticleEffect()
-        {
-           
-            if (brickParticle != null)
-            {
-                Debug.Log("Particle oynatılıyor.");
-                brickParticle.Play();
-            }
-            else
-            {
-                Debug.Log("ParticleSystem referansı bulunamadı.");
-            }
-        }
+        private void SubscribeEvents() => ShakeSignals.Instance.onBrickShake += OnBrickShake;
 
         private void OnBrickShake()
         {
@@ -74,19 +47,12 @@ namespace Runtime.Managers
 
         private IEnumerator ReturnToPoolAfterParticles()
         {
-            // Particulların oynatılma süresini bekle
             yield return new WaitForSeconds(brickParticle.main.duration);
         
-            // Particullar bittiğinde, objeyi pool'a geri döndür
             PoolSignals.Instance.onReleasePoolObject?.Invoke(PoolObjectType.Bricks, gameObject);
         }
 
         private void OnDisable() => UnsubscribeEvents();
-
-        private void UnsubscribeEvents()
-        {
-            ShakeSignals.Instance.onBrickShake -= OnBrickShake;
-
-        }
+        private void UnsubscribeEvents() => ShakeSignals.Instance.onBrickShake -= OnBrickShake;
     }
 }

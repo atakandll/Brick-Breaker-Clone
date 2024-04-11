@@ -1,6 +1,4 @@
-﻿using System;
-using DG.Tweening;
-using Runtime.Managers;
+﻿using Runtime.Managers;
 using Runtime.Signals;
 using UnityEngine;
 
@@ -15,12 +13,11 @@ namespace Runtime.Controllers.Paddle
         {
             if (other.gameObject.CompareTag("Ball"))
             {
-                Debug.Log("Top paddle ile etkileşime girdi.");
                 PaddleSignals.Instance.onInteractionWithBall?.Invoke();
+                AudioSignals.Instance.onInteractionPaddleSound?.Invoke();
                 BounceBallWithPaddle(other);
             }
         }
-
         private void BounceBallWithPaddle(Collider2D ballCollider)
         {
             var ballRigidbody = ballCollider.attachedRigidbody;

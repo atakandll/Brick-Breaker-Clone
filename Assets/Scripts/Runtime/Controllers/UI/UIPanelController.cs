@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Runtime.Enums;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using Logger = Runtime.Extensions.Logger;
 using Object = UnityEngine.Object;
 
 namespace Runtime.Controllers.UI
@@ -57,8 +53,6 @@ namespace Runtime.Controllers.UI
                 for(int i = 0; i < layers[layerValue].transform.childCount; i++)
                     Object.Destroy(layers[layerValue].transform.GetChild(i).gameObject);
             }
-                
-            
         }
         [Button("CloseAllPanels")]
         private void OnCloseAllPanel()

@@ -1,11 +1,8 @@
-﻿using System;
-using Runtime.Data.ValueObject;
+﻿using Runtime.Data.ValueObject;
 using Runtime.Keys;
-using Runtime.Managers;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using Logger = Runtime.Extensions.Logger;
 
 namespace Runtime.Controllers.Paddle
 {
@@ -30,12 +27,7 @@ namespace Runtime.Controllers.Paddle
 
         #endregion
         internal void SetMovementData(PaddleData data) => _data = data;
-        private void OnEnable()
-        {
-            SubscribeEvents();
-            Logger.Instance.Log<PaddleMovementController>("OnEnableMovementController", "green");
-        }
-
+        private void OnEnable() => SubscribeEvents();
         private void SubscribeEvents()
         {
             PaddleSignals.Instance.onPlayConditionChanged += OnPlayConditionChanged;
@@ -90,17 +82,13 @@ namespace Runtime.Controllers.Paddle
             velocity = new Vector3(0, velocity.y);
             rigidbody.velocity = velocity;
         }
-        private void Stop()
-        {
-            rigidbody.velocity = Vector3.zero;
-        }
 
+        private void Stop() => rigidbody.velocity = Vector3.zero;
         public void OnReset()
         {
             Stop();
             _isReadyToPlay = false;
             _isReadyToMove = false;
         }
-        
     }
 }

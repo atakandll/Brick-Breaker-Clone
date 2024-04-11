@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Runtime.Data.ValueObject;
+﻿using Runtime.Data.ValueObject;
 using Runtime.Signals;
 using Sirenix.OdinInspector;
 using UnityEngine;

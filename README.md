@@ -1,7 +1,7 @@
 <h1 align="center"> Brick Breaker Clone</h1>
 
 ## Overview
-This repository contains the source code for an enhanced version of the classic Brick Breaker game. Developed as a final week project for `Masomo Gaming`'s internship program in a 2.5 weeks. This game adheres to principles of SOLID, KISS, YAGNI and utilizes Dependency Injection for a robust and maintainable codebase. Inspired by the "Juice it or Lose it" talk by Martin Jonasson & Petri Purho ([Watch here](https://www.youtube.com/watch?v=Fy0aCDmgnxg)), this game aims to deliver a rich, dynamic experience through the addition of juiciness and tweening, enhancing the core gameplay with more engaging and satisfying interactions.
+- This repository contains the source code for an enhanced version of the classic Brick Breaker game. Developed as a final week project for `Masomo Gaming`'s internship program in a 2.5 weeks. This game adheres to principles of SOLID, KISS, YAGNI and utilizes Dependency Injection for a robust and maintainable codebase. Inspired by the "Juice it or Lose it" talk by Martin Jonasson & Petri Purho ([Watch here](https://www.youtube.com/watch?v=Fy0aCDmgnxg)), this game aims to deliver a rich, dynamic experience through the addition of juiciness and tweening, enhancing the core gameplay with more engaging and satisfying interactions.
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -17,7 +17,7 @@ This repository contains the source code for an enhanced version of the classic 
 ![ezgif com-video-to-gif-converter](https://github.com/atakandll/Brick-Breaker-Clone/assets/130579265/2f23f128-d36c-4d6c-9ff1-6f603a1cedcb)
 
 ## Key Features
-- ## Object Pooling:
+ ## Object Pooling:
 - Utilizes a custom `PoolManager` class to manage object instantiation efficiently, reducing overhead and improving performance, particularly for the dynamic spawning of `Brick` and `Ball` objects.
 
 ![Screenshot_334](https://github.com/atakandll/Brick-Breaker-Clone/assets/130579265/0ff23ef8-0835-4311-bedc-eeac9fc4d23a) 
@@ -25,7 +25,7 @@ This repository contains the source code for an enhanced version of the classic 
 ![Screenshot_335](https://github.com/atakandll/Brick-Breaker-Clone/assets/130579265/90ddbcf6-2fed-4f94-bf47-8e55511df00e)
 
   
-- ## Event-Driven Architecture:
+ ## Event-Driven Architecture:
 - Leverages a signal-based system to facilitate communication between various game managers, promoting loose coupling and event-driven interactions.
   
   ## Example for signals.

@@ -1,7 +1,7 @@
 <h1 align="center"> Brick Breaker Clone</h1>
 
 ## Overview
-This repository contains the source code for an enhanced version of the classic Brick Breaker game. Developed as a culminating project for `Masomo Gaming`'s internship program, this game adheres to principles of SOLID, KISS, YAGNI and utilizes Dependency Injection for a robust and maintainable codebase. Inspired by the "Juice it or Lose it" talk by Martin Jonasson & Petri Purho ([Watch here](https://www.youtube.com/watch?v=Fy0aCDmgnxg)), this game aims to deliver a rich, dynamic experience through the addition of juiciness and tweening, enhancing the core gameplay with more engaging and satisfying interactions.
+This repository contains the source code for an enhanced version of the classic Brick Breaker game. Developed as a final week project for `Masomo Gaming`'s internship program in a 2.5 weeks. This game adheres to principles of SOLID, KISS, YAGNI and utilizes Dependency Injection for a robust and maintainable codebase. Inspired by the "Juice it or Lose it" talk by Martin Jonasson & Petri Purho ([Watch here](https://www.youtube.com/watch?v=Fy0aCDmgnxg)), this game aims to deliver a rich, dynamic experience through the addition of juiciness and tweening, enhancing the core gameplay with more engaging and satisfying interactions.
 
 ## Table of Contents
 1. [Overview](#overview)

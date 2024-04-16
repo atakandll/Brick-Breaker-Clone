@@ -44,7 +44,7 @@ public class InputSignals : MonoSingleton<InputSignals>
 
   
  ## Juiced-Up Interactions:
-- Incorporates polished game feel techniques such as tweening, particle effects, and responsive sound design to elevate the player experience.
+- Incorporates polished game feel techniques such as tweening, particle effects and responsive sound design to elevate the player experience.
 
   ![simsizvideoClipchampileyapld1-ezgif com-video-to-gif-converter](https://github.com/atakandll/Brick-Breaker-Clone/assets/130579265/93124583-5f5c-4120-8b2d-1358f9bbc434)
 
@@ -59,8 +59,8 @@ public class InputSignals : MonoSingleton<InputSignals>
 ## Architecture
 The game is built upon a robust system of controllers and managers: For example;
 
-- **Paddle Management:** Through `PaddleManager`, `PaddlePhysicsController`, and `PaddleSpriteController`, the game manages the paddle's behavior, appearance, and physical interactions within the game world.
-- **Ball Dynamics:** `BallManager`, `BallPhysicsController`, `BallSpawnController`, `BallSpriteController`, and `BallMovementController` collaborate to govern the physics, spawning, and visual representation of the balls in play.
+- **Paddle Management:** Through `PaddleManager`, `PaddlePhysicsController`, and `PaddleSpriteController` the game manages the paddle's behavior, appearance, and physical interactions within the game world.
+- **Ball Dynamics:** `BallManager`, `BallPhysicsController`, `BallSpawnController`, `BallSpriteController` and `BallMovementController` collaborate to govern the physics, spawning and visual representation of the balls in play.
 
   ## PaddleMovementController class for example of controllers system:
   
